@@ -36,6 +36,7 @@ body{
                       -5px -5px 15px rgba(248, 248, 248, 0.1);
     border-radius: 15px;
     margin: 30px;
+    background: #f3f3f3;
 }
 
 .container .card::before{
@@ -78,7 +79,7 @@ body{
 
 
 .container .card .box:hover{
-    transform:translateY(-50px);
+    transform:translateY(-40px);
     box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
 }
 
@@ -129,7 +130,7 @@ body{
  }
 
  .container .card .box .content .btn:hover{
-     padding: 9px 21px;
+    padding: 9px 21px;
     cursor: pointer;
     transition: 0.2s;
 }

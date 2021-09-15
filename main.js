@@ -5,11 +5,12 @@ const path = require('path')
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1200,
+    height: 800,
     título: 'Tools Close up', 
     icon: __dirname + './public/assets/img/logo192.png',
     autoHideMenuBar: true,
+    //fullscreen: true,
     /*
     titleBarStyle: "hiddenInset",
     frame: false, */

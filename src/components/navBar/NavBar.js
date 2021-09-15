@@ -8,8 +8,8 @@ function NavBar() {
                 <div className="box">
                     <div className="content">
                         <h2>01</h2>
-                        <h3>Fichero Uno</h3>
-                        <p>Modulo dedicado al analisis y tratamiento de la Captura electronica</p>
+                        <h3>Fichero M&eacute;dico</h3>
+                        <p>Modulo dedicado al Análisis y tratamiento de la Información  <b> Fichero M&eacute;dico/</b></p>
                         <button className="btn">Fichero Uno</button>
                     </div>
                 </div>
@@ -20,8 +20,8 @@ function NavBar() {
                 <div className="box">
                     <div className="content">
                         <h2>02</h2>
-                        <h3>Fichero Dos</h3>
-                        <p>Modulo dedicado al analisis y tratamiento de la Captura electronica</p>
+                        <h3>Fichero M&eacute;dico</h3>
+                        <p>Modulo dedicado al Análisis y tratamiento de la Información  <b> Fichero M&eacute;dico/</b></p>
                         <button className="btn">Fichero Dos</button>
                     </div>
                 </div>
@@ -33,7 +33,7 @@ function NavBar() {
                     <div className="content">
                         <h2>03</h2>
                         <h3>Panel</h3>
-                        <p>Modulo dedicado al analisis y tratamiento de la Captura electronica</p>
+                        <p>Modulo dedicado al Análisis y tratamiento de la Información  <b> Panel/Captura Electrónica</b></p>
                         <button className="btn">Panel</button>
                     </div>
                 </div>
