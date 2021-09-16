@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../../css/NavBar.css'
 
 function NavBar() {
@@ -10,7 +11,7 @@ function NavBar() {
                         <h2>01</h2>
                         <h3>Fichero M&eacute;dico</h3>
                         <p>Modulo dedicado al Análisis y tratamiento de la Información  <b> Fichero M&eacute;dico/</b></p>
-                        <button className="btn">Fichero Uno</button>
+                        <Link to="/fichero_" className="btn"> Fichero uno</Link>
                     </div>
                 </div>
             </div>
@@ -22,7 +23,7 @@ function NavBar() {
                         <h2>02</h2>
                         <h3>Fichero M&eacute;dico</h3>
                         <p>Modulo dedicado al Análisis y tratamiento de la Información  <b> Fichero M&eacute;dico/</b></p>
-                        <button className="btn">Fichero Dos</button>
+                        <Link to="/fichero__" className="btn"> Fichero dos</Link>
                     </div>
                 </div>
             </div>
@@ -34,7 +35,7 @@ function NavBar() {
                         <h2>03</h2>
                         <h3>Panel</h3>
                         <p>Modulo dedicado al Análisis y tratamiento de la Información  <b> Panel/Captura Electrónica</b></p>
-                        <button className="btn">Panel</button>
+                        <Link to="/panel" className="btn"> Panel</Link>
                     </div>
                 </div>
             </div>

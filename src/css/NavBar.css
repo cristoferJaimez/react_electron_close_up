@@ -13,7 +13,8 @@ body{
     align-items: center;
     flex-wrap: wrap; 
     min-height: 100vh;
-    background:#03a9fa;
+    /*background:#03a9fa;*/
+    background: #ebebeb;
 }
 
 .container{
@@ -79,7 +80,7 @@ body{
 
 
 .container .card .box:hover{
-    transform:translateY(-40px);
+    transform:translateY(-50px);
     box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
 }
 

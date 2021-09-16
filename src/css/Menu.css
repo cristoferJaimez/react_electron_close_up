@@ -1,0 +1,228 @@
+@import url('http://font.googleapis.com/css?family=Poppins:200,300,400,500,700,800,900&display=swap');
+:root{
+    --width: 200px;
+    --padding: 10px;
+    --bgcolor:rgb(23,23,23);
+    --hovercolor: rgba(177, 174, 174, 0.767);;
+    --width-collapsed: 48px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: #ebebeb;
+    margin-left: var(--width-collapsed);
+}
+
+.body-expanded{
+    margin-left: var(--width);
+    transition: 2s;
+}
+
+#sidemenu{
+    background-color: var(--bgcolor);
+    color: white;
+    position:fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transition: 2s;
+}
+
+#sidemenu a {
+    color: white;
+    text-decoration: none;
+}
+
+/*header*/
+
+#sidemenu #header{
+    box-sizing: border-box;
+    border-bottom: solid 1px var(--hovercolor);
+    transition: 2s;
+}
+
+#sidermenu #header #title{
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#sidemenu #header #title, #sidemenu #header #menu-btn{
+    vertical-align: middle;
+}
+
+#sidemenu #header #menu-btn{
+    display: inline-block;
+}
+
+#sidemenu #header #menu-btn{
+    cursor:  pointer;
+    padding: 10px;
+    width: var(--width-collapsed);
+    border-width: inherit;
+    background-color:rgb(52,52,52);
+    align-items: center;
+    transition: 1s;
+}
+
+#sidemenu #header #menu-btn:hover{
+    background-color:var(--hovercolor) ;
+  
+}
+
+
+#sidemenu #header #menu-btn .btn-hamburger{
+    align-items: center;
+    background-color: #FFF;
+    width: 100%;
+    height: 4px;
+    margin: 4px 0;
+    border-radius: 2px 1px 2px 1px;
+}
+
+
+/*profile*/
+
+#sidemenu #profile{
+    border-bottom: solid 1px var(--hovercolor);
+    padding: var(--padding) 0;
+    text-align: center;
+    margin-top: 7px;
+}
+
+#sidemenu #profile #photo{
+    box-sizing: border-box;
+    padding: var(--padding);
+    margin: 0 auto;
+}
+
+#sidemenu #profile #photo img{
+    border-radius: 50%;
+    width: 50%;
+}
+
+#sidemenu #profile #photo, #sidemenu #profile #name{
+    transition: 2s;
+    font-size: 24px;
+    padding: var(--padding);
+    overflow: hidden;
+}
+
+/*items*/
+
+#sidemenu #menu-items{
+    overflow: hidden
+}
+
+#sidemenu #menu-items .item{
+    width: var(--width);
+}
+
+#sidemenu #menu-items .item .icon{
+    display: inline-block;
+}
+
+
+#sidemenu #menu-items .item .icon,
+#sidemenu #menu-items .item .title{
+    transition: 2s;
+    font-size: 14px;
+    vertical-align: middle;
+    overflow: hidden;
+    display: inline-block;
+}
+
+
+#sidemenu #menu-items .item a{
+    display: block;
+}
+
+#sidemenu #menu-items .item a:hover{
+    background-color: var(--hovercolor);
+}
+
+#sidemenu #menu-items .item .icon{
+    box-sizing: border-box;
+    padding: var(--padding);
+    width: var(--width-collapsed);
+}
+
+#sidemenu #menu-items .item .icon img{
+    width: 70%;
+}
+
+#sidemenu #menu-items .item .title{
+    padding: var(--padding) 0;
+}
+
+/*
+#sidemenu #menu-items .item.separator{
+    height: 1px;
+    border-bottom: solid 1px var(--hovercolor);
+    margin: 0px 0;
+}*/
+
+.menu-expanded{
+    transition: 1ms;
+    width: var(--width);
+    box-shadow: 0 0 10px rgba(0,0,0,0,0.5);
+}
+
+
+
+
+.menu-expanded #header #title{
+    text-align: right;
+    display: inline-block;
+    width: calc(100% - 50px);
+    margin-right: -5px;
+    
+}
+
+.menu-expanded #header #title span{
+    width: calc(var(--width) - var(--width-collapsed) - 5px);
+    overflow: hidden;
+    display: none;
+    
+}
+
+.menu-expanded #profile #photo{
+    width: 200px;
+}
+
+.menu-expanded #profile #name{
+    transition-delay: 2s;
+    width: 100%;
+}
+
+.menu-collapsed{
+    width: var(--width-collapsed);
+    transition: 1s;
+}
+
+.menu-collapsed #header #menu-btn{
+    align-items: center;
+    position: fixed;
+}
+
+.menu-collapsed #header #title{
+   
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+}
+
+
+.menu-collapsed #profile #name{
+    display: none;
+}
+
+
+
+
+
