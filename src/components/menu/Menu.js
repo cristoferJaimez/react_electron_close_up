@@ -27,6 +27,7 @@ function Menu() {
 
         <div id="profile">
           <div id="photo">
+            <img src="" alt="photo_user" />
             <div id="name">
               <span>Panel</span>
             </div>
@@ -58,6 +59,8 @@ function Menu() {
               <div className="title">Base de Datos</div>
             </Link>
           </div>
+
+       
 
           <div className="item separator"></div>
         </div>
