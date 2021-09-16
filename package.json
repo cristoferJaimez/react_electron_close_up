@@ -24,10 +24,9 @@
   "main": "main.js",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "babel-env": "babel server -d dist --source-maps",
+    "build": "babel server -d dist --source-maps",
     "eject": "react-scripts eject",
-    "server": "babel-node ./server/server.js",
+    "server": " nodemon ./server/server.js --exec babel-node",
     "electron-react": "concurrently \"SET BROWSER=none && yarn start\" \"wait-on http://localhost:3000 && electron .\" \"npm run server\" "
   },
   "win": {
@@ -61,6 +60,7 @@
     "@babel/cli": "^7.15.4",
     "@babel/core": "^7.15.5",
     "@babel/node": "^7.15.4",
-    "@babel/preset-env": "^7.15.6"
+    "@babel/preset-env": "^7.15.6",
+    "nodemon": "^2.0.12"
   }
 }
