@@ -1,4 +1,4 @@
-import { makeExecutableSchema } from "graphql-tools";
+const tools = require('graphql-tools/index')
 import { resolvers } from "../libs/resolvers";
 
 const typeDef = `
@@ -40,7 +40,7 @@ const typeDef = `
 
 `;
 
-export default makeExecutableSchema({
+export default  tools.makeExecutableSchema({
   typeDefs: typeDef,
   resolvers: resolvers,
 });
