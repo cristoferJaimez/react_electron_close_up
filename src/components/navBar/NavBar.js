@@ -10,7 +10,7 @@ function NavBar() {
                     <div className="content">
                         <h2>01</h2>
                         <h3>Fichero M&eacute;dico</h3>
-                        <p>Modulo dedicado al Análisis y tratamiento de la Información  <b> Fichero M&eacute;dico/</b></p>
+                        <p>Modulo dedicado al Análisis y tratamiento de la Información  <b> Fichero M&eacute;dico/Cruces Medicos</b></p>
                         <Link to="/fichero_" className="btn"> Fichero uno</Link>
                     </div>
                 </div>
@@ -22,23 +22,12 @@ function NavBar() {
                     <div className="content">
                         <h2>02</h2>
                         <h3>Fichero M&eacute;dico</h3>
-                        <p>Modulo dedicado al Análisis y tratamiento de la Información  <b> Fichero M&eacute;dico/</b></p>
+                        <p>Modulo dedicado al Análisis y tratamiento de la Información  <b> Fichero M&eacute;dico/Base Progress, Pool</b></p>
                         <Link to="/fichero__" className="btn"> Fichero dos</Link>
                     </div>
                 </div>
             </div>
 
-
-            <div className="card">
-                <div className="box">
-                    <div className="content">
-                        <h2>03</h2>
-                        <h3>Panel</h3>
-                        <p>Modulo dedicado al Análisis y tratamiento de la Información  <b> Panel/Captura Electrónica</b></p>
-                        <Link to="/panel" className="btn"> Panel</Link>
-                    </div>
-                </div>
-            </div>
           </div> 
       </div>
     );

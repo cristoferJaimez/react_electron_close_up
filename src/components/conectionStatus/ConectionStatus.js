@@ -1,8 +1,18 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faDatabase, faLongArrowAltDown , faLongArrowAltUp } from '@fortawesome/free-solid-svg-icons'
 import '../../css/ConectionStatus.css'
+
+
 function ConectionStatus() {
-    return (
+
+  const db = <FontAwesomeIcon icon={faDatabase}  className="dataBase"/>
+  const rowDown = <FontAwesomeIcon icon={faLongArrowAltDown}  className="dataBase"/>
+  const rowUp = <FontAwesomeIcon icon={faLongArrowAltUp}  className="dataBase"/>
+
+
+  return (
       <div className="">
-        <h2> Estado:       Velocidad Subida:   Velocidad Descarga:</h2>
+        <h2> estado:  {db}     velocidad subida: { rowUp }   velocidad descarga:{ rowDown } </h2>
       </div>
     );
   }

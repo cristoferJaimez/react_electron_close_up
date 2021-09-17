@@ -1,0 +1,94 @@
+@import url('http://font.googleapis.com/css?family=Poppins:200,300,400,500,700,800,900&display=swap');
+
+h3{
+    margin-top: 1em;
+}
+
+.form{
+    background-color: #fff;
+    margin: auto;
+    width: 90%;
+    padding: .5em;
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.form_title{
+    font-size: 2rem;
+    margin-bottom: .5em;
+}
+
+.form_container{
+    margin-top: 2em;
+    display: grid;
+    gap: 2em;
+
+}
+
+.form_group{
+    position: relative;
+    --color: #5757577e
+}
+
+.form_input{
+    width: 100%;
+    background: none;
+    color: #706c6c;
+    font-size: 1rem;
+    padding: .2em .1em;
+     border: none;
+     outline: none;
+     border-bottom: 1px solid  var(--color);
+     font-size: 'Poppins', small;
+}
+
+
+.form_input:focus + .form_label,
+.form_input:not(:placeholder-shown) +  .form_label{
+    transform: translateY(-10px) scale(.7);
+    transform-origin: left top;
+    color: #5d77c421;
+}
+
+.form_label{
+    color:  var(--color);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 5px;
+    transform-origin: left;
+    transform: translateY(5px);
+    transition: transform .5s, color .3s;
+}
+
+.form_line{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #3866f280;
+    transform: scale(0);
+    transform: left bottom;
+    transition: transform .4s;
+}
+
+.form_input:focus ~ .form_line,
+.form_input:not(:placeholder-shown) ~  .form_line{
+    transform: scale(1);
+}
+
+ #profile #photo_{
+    box-sizing: border-box;
+    padding: 2em 3em;
+    margin: 0 auto;
+}
+
+  #photo_ img{
+    border-radius: 50%;
+    width: 50%;
+    background: rgba(250, 248, 248, 0.3);
+    border: solid 4px rgba(0, 0, 0, 0.3);
+    
+}

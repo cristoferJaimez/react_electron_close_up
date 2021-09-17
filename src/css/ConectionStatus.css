@@ -7,3 +7,7 @@
     color: rgba(58, 55, 55, 0.2);
     font-family:'Roboto Mono', monospace;
 }
+
+.dataBase{
+    color: red;
+}

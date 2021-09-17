@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHome, faDatabase, faCubes, faArchive, faCogs, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import "../../css/Menu.css";
 
 function Menu() {
@@ -9,6 +11,19 @@ function Menu() {
     menu.classList.toggle("menu-expanded");
     menu.classList.toggle("menu-collapsed");
   };
+
+ //icons
+  const home =  <FontAwesomeIcon icon={faHome} size="sm" />
+  const db =  <FontAwesomeIcon icon={faDatabase}  size="sm" />
+  const panel =  <FontAwesomeIcon icon={faCubes} size="sm"  />
+  const fichero_ =  <FontAwesomeIcon icon={faArchive} size="sm"  />
+  const cogs =  <FontAwesomeIcon icon={faCogs} />
+  const sign_out =  <FontAwesomeIcon icon={faSignOutAlt} size="sm" />
+
+
+
+
+ //end icons
 
   return (
     <div className="">
@@ -27,9 +42,9 @@ function Menu() {
 
         <div id="profile">
           <div id="photo">
-            <img src="" alt="photo_user" />
+            <img src="https://th.bing.com/th/id/OIP.i7rkGK5SPnFU6fPa2wg-qgHaF2?pid=ImgDet&rs=1" alt="photo_user" />
             <div id="name">
-              <span>Panel</span>
+              <h4>nombre usuario</h4>
             </div>
           </div>
         </div>
@@ -38,31 +53,64 @@ function Menu() {
           <div className="item">
             <Link to="/">
               <div className="icon">
-                <img src="" alt="icon"></img>
+              {home}
               </div>
               <div className="title">Home</div>
             </Link>
           </div>
           <div className="item">
+            <Link to="/fichero_">
+              <div className="icon">
+                { fichero_ }
+              </div>
+              <div className="title">Fichero M&eacute;dico</div>
+            </Link>
+          </div>
+
+         
+          
+          <div className="item">
             <Link to="/panel">
               <div className="icon">
-                <img src="" alt="icon"></img>
+                { panel }
               </div>
               <div className="title">Panel</div>
             </Link>
           </div>
+
           <div className="item">
-            <Link to="/check_data_base">
+            <Link to="/database">
               <div className="icon">
-                <img src="" alt="icon"></img>
+                { db }
               </div>
               <div className="title">Base de Datos</div>
             </Link>
           </div>
 
+          <span className=" item separator"></span>
+          <div className="item">
+            <Link to="/check_data_base">
+              <div className="icon">
+                { cogs }
+              </div>
+              <div className="title">Configuraciones</div>
+            </Link>
+          </div>
+
        
 
-          <div className="item separator"></div>
+          <div className="item_separator"></div>
+
+          <div className="item">
+            <Link to="/check_data_base">
+              <div className="icon">
+                { sign_out }
+              </div>
+              <div className="title">Salir</div>
+            </Link>
+          </div>
+
+
         </div>
       </div>
 
