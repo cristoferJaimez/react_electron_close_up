@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+h3{
+    position: relative;
+    top: -2px;
+    font-size: 0.8em;
+    color: rgba(58, 55, 55, 0.2);
+    font-family:'Roboto Mono', monospace;
+    align-items: center;
+    text-align: center;
+}
+
+.btn_{
+    cursor: pointer;
+}
+
+h5{
+    position: relative;
+    top: -2px;
+    font-size: 0.6em;
+    color: rgba(58, 55, 55, 0.2);
+    font-family:'Roboto Mono', monospace;
+    align-items: center;
+    text-align: center;
+}

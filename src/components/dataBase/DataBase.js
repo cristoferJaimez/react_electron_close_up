@@ -1,45 +1,79 @@
+import * as React from "react";
+import { Link } from 'react-router-dom'
 import "../../css/DataBase.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDatabase, faEye, faCogs } from "@fortawesome/free-solid-svg-icons";
 
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import Avatar from "@mui/material/Avatar";
+import Card from "@mui/material/Card";
 
 function DataBase() {
   //icons
-  const db = <FontAwesomeIcon icon={faDatabase} size="7x" className="icon_" />;
+  const db = <FontAwesomeIcon icon={faDatabase} size="sm" />;
   const eye = <FontAwesomeIcon icon={faEye} size="sm" />;
-  const cogs = <FontAwesomeIcon icon={faCogs} size="sm" />;
 
   return (
     <div className="">
-      <div className="container">
-        <div className="card">
-          <div className="box">
-            <div className="content">
-              <h2>01</h2>
-              {db}
-              <h3>Panel </h3>
-              <table>
-                  <tr>
-                    <td>f</td>
-                    <td>b</td>
-                    <td>b</td>
+      <h3 style={{ fontSize: "2em" }}>Base de Datos</h3>
 
-                  </tr>
-              </table>
-            </div>
-          </div>
-        </div>
-
-        <div className="card">
-          <div className="box">
-            <div className="content">
-              <h2>02</h2>
-              {db}
-              <h3>Fichero M&eacute;dico</h3>
-
+      <div class="box01">
+        <div class="box02">
+            <List>
+              
+              <Link className="link_data" to="/dbColombia">
+                <ListItem>
+                  <ListItemAvatar>
+                    <Avatar>{db}</Avatar>
+                  </ListItemAvatar>
+                  <ListItemText primary="Colombia" secondary="Panel" />
+                </ListItem>
+              </Link>
              
-            </div>
-          </div>
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar>{db}</Avatar>
+                </ListItemAvatar>
+                <ListItemText primary="Maestro Labs" secondary="Panel" />
+              </ListItem>
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar>{db}</Avatar>
+                </ListItemAvatar>
+                <ListItemText primary="Zona de Influencia" secondary="Panel" />
+              </ListItem>
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar>{db}</Avatar>
+                </ListItemAvatar>
+                <ListItemText primary="Apellidos" secondary="Panel" />
+              </ListItem>
+            </List>
+        </div>
+        <div class="box03">
+            <List>
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar>{db}</Avatar>
+                </ListItemAvatar>
+                <ListItemText
+                  primary="Base Progress"
+                  secondary="Fichero M&eacute;dico"
+                />
+              </ListItem>{" "}
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar>{db}</Avatar>
+                </ListItemAvatar>
+                <ListItemText
+                  primary="Pool"
+                  secondary="Fichero M&eacute;dico"
+                />
+              </ListItem>
+            </List>
         </div>
       </div>
     </div>

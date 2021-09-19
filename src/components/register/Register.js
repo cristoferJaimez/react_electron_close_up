@@ -5,7 +5,7 @@ import "../../css/SignIn.css";
 import "../../css/Form.css";
 
 
-function Sign_In() {
+function Register() {
 
 
 
@@ -19,9 +19,9 @@ function Sign_In() {
               <h3>Close</h3>
               <form className="form">
                 <div id="photo_">
-                  <img src="http://pa1.narvii.com/7509/63222f134a6befd896ee922a576bbe1399bd2c9br1-320-180_00.gif" alt="photo_user" />
+                  <img src="https://www.close-upinternational.mx/img/logo-header.png" alt="photo_user" />
                   <div id="name">
-                    <h4>nombre usuario</h4>
+                    <h4>Nuevo Usuario</h4>
                   </div>
                 </div>
                 <div className="form_container">
@@ -47,18 +47,18 @@ function Sign_In() {
                       placeholder=" "
                     ></input>
                     <label htmlFor="pw" className="form_label">
-                      Contrase&ntilde;a
+                     crear contrase&ntilde;a
                     </label>
 
                     <span className="form_line"></span>
                   </div>
 
                   <button type="submit" className="btn_">
-                    Entrar
+                    Registar
                   </button>
                 </div>
               </form>
-              <span className="sign">¿nuevo usuario? <Link to="/register">click aqui!</Link></span>
+              <span><Link to="/" className="sign">iniciar sesion!</Link></span>
             </div>
           </div>
         </div>
@@ -67,4 +67,4 @@ function Sign_In() {
   );
 }
 
-export default Sign_In;
+export default Register;

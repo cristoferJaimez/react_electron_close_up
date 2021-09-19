@@ -1,0 +1,42 @@
+type Query {
+  ping: String!
+  users: [User!]
+  preUsers: [PreUsers!]
+}
+
+type Mutation {
+  createrPreUser (input: PreUsersInput): PreUsers
+  createUser(input: UserInput): User
+}
+
+type PreUsers {
+  _id: ID
+  correo: String!
+  estado: String!
+}
+
+type User {
+  _id: ID!
+  nombres: String
+  documento: Int
+  correo: String!
+  pw: String!
+  rol: String!
+  img: String
+  estado: String
+}
+
+input PreUsersInput {
+  correo: String!
+  estado: String!
+}
+
+input UserInput {
+  nombres: String
+  documento: Int
+  correo: String!
+  pw: String!
+  rol: String!
+  img: String!
+  estado: String!
+}

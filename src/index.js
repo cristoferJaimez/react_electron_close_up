@@ -5,10 +5,22 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 
+import apolloClient from "apollo-boost";
+import { ApolloProvider } from "@apollo/react-hooks";
+
+//conectar api graphql a el front de react
+const client = new apolloClient({
+  uri: "http://localhost:4100",
+});
+
+
+
 ReactDOM.render(
   <BrowserRouter>
     <React.StrictMode>
-      <App />
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
     </React.StrictMode>
   </BrowserRouter>,
   document.getElementById("root")

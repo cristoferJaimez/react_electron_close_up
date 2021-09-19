@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faDatabase, faCubes, faArchive, faCogs, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faDatabase, faCubes, faArchive, faCogs, faSignOutAlt, faUsersCog, faUsers } from '@fortawesome/free-solid-svg-icons'
 import "../../css/Menu.css";
 
 function Menu() {
@@ -19,6 +19,8 @@ function Menu() {
   const fichero_ =  <FontAwesomeIcon icon={faArchive} size="sm"  />
   const cogs =  <FontAwesomeIcon icon={faCogs} />
   const sign_out =  <FontAwesomeIcon icon={faSignOutAlt} size="sm" />
+  const userCog =  <FontAwesomeIcon icon={faUsersCog} size="sm" />
+  const users =  <FontAwesomeIcon icon={faUsers} size="sm" />
 
 
 
@@ -42,7 +44,7 @@ function Menu() {
 
         <div id="profile">
           <div id="photo">
-            <img src="https://th.bing.com/th/id/OIP.i7rkGK5SPnFU6fPa2wg-qgHaF2?pid=ImgDet&rs=1" alt="photo_user" />
+            <img src="http://pa1.narvii.com/7509/63222f134a6befd896ee922a576bbe1399bd2c9br1-320-180_00.gif" alt="photo_user" />
             <div id="name">
               <h4>nombre usuario</h4>
             </div>
@@ -94,6 +96,26 @@ function Menu() {
                 { cogs }
               </div>
               <div className="title">Configuraciones</div>
+            </Link>
+          </div>
+
+          <span className=" item separator"></span>
+          <div className="item">
+            <Link to="/check_data_base">
+              <div className="icon">
+                { userCog }
+              </div>
+              <div className="title">Config. del usuario</div>
+            </Link>
+          </div>
+
+          <span className=" item separator"></span>
+          <div className="item">
+            <Link to="/users">
+              <div className="icon">
+                { users }
+              </div>
+              <div className="title">Usuarios</div>
             </Link>
           </div>
 

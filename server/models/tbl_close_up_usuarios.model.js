@@ -10,6 +10,7 @@ const tbl_close_up_usuarios = Schema(
     pw: String,
     rol: String,
     img: String,
+    estado: String,
   },
   {
     timestamps: true,

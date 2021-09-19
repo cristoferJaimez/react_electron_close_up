@@ -1,7 +1,29 @@
-.icon_{
-    position: relative;
-    top: 50px;
-    left:  -70px;
-    font-size: 8em;
-    color: rgba(58, 55, 55, 0.2);
+
+.box01{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    background: rgb(255, 255, 255);
+    padding: 3em 2em;
+    border-radius: 2%;
+    
+}
+  
+  .box02{
+    width: 100%;
+  }
+  
+  .box03{
+    width: 100%;
+    margin-left: 10px;
+  }
+
+
+  .link_data{
+      text-decoration: none;
+  }
+
+  .link_data:hover{
+    text-decoration: none;
+    background: rgba(255, 80, 80, 0.3);
 }
