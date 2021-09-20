@@ -10,7 +10,7 @@ import { ApolloProvider } from "@apollo/react-hooks";
 
 //conectar api graphql a el front de react
 const client = new apolloClient({
-  uri: "http://localhost:4100",
+  uri: "http://localhost:4001",
 });
 
 

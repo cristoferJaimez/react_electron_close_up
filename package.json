@@ -2,7 +2,6 @@
   "name": "close_up_electron_react",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:4001",
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
     "@emotion/react": "^11.4.1",
@@ -42,20 +41,11 @@
   },
   "main": "main.js",
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"npm run server\"",
+    "start": "react-scripts start",
     "build": "babel server -d dist --source-maps",
     "eject": "react-scripts eject",
-    "server": " nodemon ./server/index.js --exec babel-node  --ignor './src' --ignor './public' ",
-    "electron-react": "concurrently \"SET BROWSER=none && yarn start\" \"wait-on http://localhost:3000 && electron .\" \"npm run server\" "
-  },
-  "win": {
-    "icon": "public/logo192.png"
-  },
-  "mac": {
-    "icon": "public/logo192.png"
-  },
-  "linux": {
-    "icon": "public/logo192.png"
+    "server": " nodemon ./server/index.js --exec babel-node",
+    "electron-react": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\""
   },
   "eslintConfig": {
     "extends": [

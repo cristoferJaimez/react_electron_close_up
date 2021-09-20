@@ -4,14 +4,13 @@ import { Schema, model } from "mongoose";
 
 const tbl_panel_zona_influencia = Schema(
   {
-    departamento: String,
-    cod_ciud: Number,
-    region: String,
-    zona_de_influencia: String,
-    cod_ciud: Number,
-    ciud_zona: String,
-    zona: String,
-    departamento_ok: String,
+    DEPARTAMENTO: String,
+    COD_CIUD: String,
+    REGION: String,
+    ZONAS_DE_INFLUENCIA: String,
+    CIUD_ZONA: String,
+    Region_2: String,
+    Departamento_2: String,
   },
   {
     timestamps: true,

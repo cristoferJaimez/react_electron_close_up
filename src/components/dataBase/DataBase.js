@@ -9,7 +9,6 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
-import Card from "@mui/material/Card";
 
 function DataBase() {
   //icons
@@ -20,8 +19,8 @@ function DataBase() {
     <div className="">
       <h3 style={{ fontSize: "2em" }}>Base de Datos</h3>
 
-      <div class="box01">
-        <div class="box02">
+      <div className="box01">
+        <div className="box02">
             <List>
               
               <Link className="link_data" to="/dbColombia">
@@ -39,12 +38,15 @@ function DataBase() {
                 </ListItemAvatar>
                 <ListItemText primary="Maestro Labs" secondary="Panel" />
               </ListItem>
-              <ListItem>
-                <ListItemAvatar>
-                  <Avatar>{db}</Avatar>
-                </ListItemAvatar>
-                <ListItemText primary="Zona de Influencia" secondary="Panel" />
-              </ListItem>
+              <Link className="link_data" to="/dbZonas">
+                <ListItem>
+                  <ListItemAvatar>
+                    <Avatar>{db}</Avatar>
+                  </ListItemAvatar>
+                  <ListItemText primary="Zonas de Influencia" secondary="Panel" />
+                </ListItem>
+              </Link>
+             
               <ListItem>
                 <ListItemAvatar>
                   <Avatar>{db}</Avatar>
@@ -53,7 +55,7 @@ function DataBase() {
               </ListItem>
             </List>
         </div>
-        <div class="box03">
+        <div className="box03">
             <List>
               <ListItem>
                 <ListItemAvatar>

@@ -3,6 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCubes } from "@fortawesome/free-solid-svg-icons";
 
 function Panel() {
+
+  const handleChange = (e) => {
+      console.log(e.target.files[0]);
+  }
+
   //icons
   const cubos = <FontAwesomeIcon icon={faCubes}  size="6x" />;
   return (
@@ -21,6 +26,7 @@ function Panel() {
               className="form_input"
               id="file"
               placeholder=" "
+              onChange = {  handleChange  }
             />
             <label htmlFor="file" className="form_label">
               Subir Archivo
