@@ -41,11 +41,11 @@
   },
   "main": "main.js",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "  concurrently \"BROWSER=none\"  \" react-scripts start \" \" yarn server \"",
     "build": "babel server -d dist --source-maps",
     "eject": "react-scripts eject",
     "server": " nodemon ./server/index.js --exec babel-node",
-    "electron-react": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\""
+    "electron-dev": "concurrently \"yarn start\" \"wait-on http://localhost:3000 && electron .\""
   },
   "eslintConfig": {
     "extends": [
