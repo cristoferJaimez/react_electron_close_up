@@ -43,3 +43,12 @@ label[for="form_label"] {
         position: absolute;
         z-index: -1;
         }
+
+        #loading{
+            text-align: center;
+            top: -2px;
+            right: 30px;
+            font-size: 0.8em;
+            color: rgb(120, 155, 80);
+            font-family:'Roboto Mono', monospace;
+        }

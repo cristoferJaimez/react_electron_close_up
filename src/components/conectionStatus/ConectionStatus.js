@@ -3,6 +3,9 @@ import { faDatabase, faLongArrowAltDown , faLongArrowAltUp } from '@fortawesome/
 import '../../css/ConectionStatus.css'
 
 
+
+
+
 function ConectionStatus() {
 
   const db = <FontAwesomeIcon icon={faDatabase}  className="dataBase"/>
@@ -12,7 +15,7 @@ function ConectionStatus() {
 
   return (
       <div className="">
-        <h2> estado:  {db}     velocidad subida: { rowUp }   velocidad descarga:{ rowDown } </h2>
+        
       </div>
     );
   }

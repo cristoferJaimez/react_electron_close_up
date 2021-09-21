@@ -21,6 +21,8 @@ import DataBase from "./components/dataBase/DataBase";
 import DataBaseColombia from "./components/dataBase/dataBase/DataBaseColombia"
 import DataBaseZona from "./components/dataBase/dataBase/DataBaseZona"
 
+// procewso de panel modulo 1
+
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
           
           <Route path="/dbcolombia" component={DataBaseColombia} exact></Route>
           <Route path="/dbzonas" component={DataBaseZona} exact></Route>
+
+
 
 
 

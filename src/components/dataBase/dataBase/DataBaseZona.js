@@ -6,7 +6,7 @@ import AddIcon from "@material-ui/icons/Add";
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 
-import edit from "@material-ui/icons/Edit";
+import edit from "@material-ui/icons/Edit"; 
 import delet from "@material-ui/icons/Delete";
 import view from "@material-ui/icons/RemoveRedEye";
 

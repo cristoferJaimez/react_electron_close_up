@@ -33,18 +33,20 @@
     "react": "^17.0.2",
     "react-apollo": "^3.1.5",
     "react-dom": "^17.0.2",
+    "react-excel-renderer": "^1.1.0",
     "react-router": "^5.2.1",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
     "wait-on": "^6.0.0",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "xlsx": "^0.17.2"
   },
   "main": "main.js",
   "scripts": {
     "start": "  concurrently \"BROWSER=none\"  \" react-scripts start \" \" yarn server \"",
     "build": "babel server -d dist --source-maps",
     "eject": "react-scripts eject",
-    "server": " nodemon ./server/index.js --exec babel-node",
+    "server": " nodemon ./server/index.js   --exec babel-node",
     "electron-dev": "concurrently \"yarn start\" \"wait-on http://localhost:3000 && electron .\""
   },
   "eslintConfig": {
