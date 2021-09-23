@@ -52,3 +52,8 @@ label[for="form_label"] {
             color: rgb(120, 155, 80);
             font-family:'Roboto Mono', monospace;
         }
+
+       ul li {
+            cursor: pointer;
+            text-decoration: none;
+        }
