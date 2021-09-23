@@ -2,6 +2,9 @@ import { useState } from "react";
 import "../../css/Panel.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCubes, faBed } from "@fortawesome/free-solid-svg-icons";
+
+import MaterialTable from "material-table";
+
 //import funccion de trabajo
 import Read from "../../js/panel/panel.fuc";
 
@@ -15,8 +18,8 @@ function Panel() {
     // Guardo el objeto como un string
     Read(e.target.files[0]);
     setWordSpace({
-      display: 'none'
-    })
+      display: "none",
+    });
   };
 
   const handleSubmit = (e) => {
@@ -26,6 +29,10 @@ function Panel() {
   //icons
   const cubos = <FontAwesomeIcon icon={faCubes} size="6x" />;
   const sleep = <FontAwesomeIcon icon={faBed} size="6x" />;
+
+  //const rows = [localStorage.getItem("data_set")]
+  //console.log(rows);
+
 
   return (
     <div className="">
@@ -63,8 +70,14 @@ function Panel() {
           </button>
         </div>
       </form>
-      <div id ="loading">...</div>
+      <div id="loading">...</div>
       <div id="wordSpace"></div>
+
+      <MaterialTable
+        style={{ fontSize: "0.8em", margin: " " }}
+        title="Set de Datos"
+        localization={{ header: { actions: "Acciones" } }}
+      />
     </div>
   );
 }
