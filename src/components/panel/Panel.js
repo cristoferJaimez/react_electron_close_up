@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from 'react-router-dom'
 import "../../css/DataBase.css";
 import "../../css/Panel.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -50,7 +51,7 @@ function Panel() {
         name: "Nombre del Archivo:   " + name_sheet,
         stated: arr.map((val, i, arr) => {
           return (
-            <li key={i} style={{ listStyle: "none" }}>
+            <li key={i}>
               <input
                 type="checkbox"
                 onClick={list_process}
@@ -68,6 +69,8 @@ function Panel() {
   };
 
   const list_process = (e) => {
+  var che  =  document.getElementById(e.target.id).checked;
+  if(che === true){ 
     order_process.push({
       task: e.target.value,
       id: e.target.id,
@@ -80,16 +83,48 @@ function Panel() {
     setOrder({
       newArr: getOrder.map((val, i, arr) => {
         return (
-          <li key={i} style={{ listStyle: "none" }}>
-            <label htmlFor={i}>
-              {" "}
-              {val.task} Task: ({i + 1}){" "}
+          <li key={i}>
+            <label
+              htmlFor={i}
+              style={{ cursor: "pointer" }}
+            >
+              <b>{val.task}</b>
             </label>
           </li>
         );
       }),
     });
+
+  }else if(che === false){
+   let valor ="";
+    console.log(valor);
+    order_process.splice({
+      task: e.target.value,
+      id: e.target.id,
+    },1);
+    localStorage.setItem("list_order", JSON.stringify(order_process));
+    var getOrder = localStorage.getItem("list_order");
+    var getList = localStorage.getItem("row_title_file");
+    getList = JSON.parse(getList);
+    getOrder = JSON.parse(getOrder);
+    setOrder({
+      newArr: getOrder.map((val, i, arr) => {
+        return (
+          <li key={i}>
+            <label
+              htmlFor={i}
+              style={{ cursor: "pointer" }}
+            >
+              <b> {val.task}</b>
+            </label>
+          </li>
+        );
+      }),
+    });
+
+  }
   };
+
 
   //icons
   const cubos = <FontAwesomeIcon icon={faCubes} size="6x" />;
@@ -135,9 +170,9 @@ function Panel() {
         </div>
         <div className="box03">
           <h3> Orden de Tareas</h3>
-          <form>
+          
             <ul>{order.newArr}</ul>
-          </form>
+            <Link to="/panel__" style={{ textDecoration: 'none', border: 'solid 1px #000', padding:'0.2em' }} >procesar...</Link> 
         </div>
       </div>
     </div>
