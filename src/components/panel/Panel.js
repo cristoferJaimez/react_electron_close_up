@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import "../../css/DataBase.css";
 import "../../css/Panel.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -57,7 +57,7 @@ function Panel() {
                 onClick={list_process}
                 id={i}
                 name={i}
-                value={val.title}
+                value={val.title} 
                 style={{ cursor: "pointer" }}
               />
               <label htmlFor={i}> {val.title} </label>
@@ -68,68 +68,65 @@ function Panel() {
     }
   };
 
+
+
   const list_process = (e) => {
-  var che  =  document.getElementById(e.target.id).checked;
-  if(che === true){ 
-    order_process.push({
-      task: e.target.value,
-      id: e.target.id,
-    });
-    localStorage.setItem("list_order", JSON.stringify(order_process));
-    var getOrder = localStorage.getItem("list_order");
-    var getList = localStorage.getItem("row_title_file");
-    getList = JSON.parse(getList);
-    getOrder = JSON.parse(getOrder);
-    setOrder({
-      newArr: getOrder.map((val, i, arr) => {
-        return (
-          <li key={i}>
-            <label
-              htmlFor={i}
-              style={{ cursor: "pointer" }}
-            >
-              <b>{val.task}</b>
-            </label>
-          </li>
-        );
-      }),
-    });
-
-  }else if(che === false){
-   let valor ="";
-    console.log(valor);
-    order_process.splice({
-      task: e.target.value,
-      id: e.target.id,
-    },1);
-    localStorage.setItem("list_order", JSON.stringify(order_process));
-    var getOrder = localStorage.getItem("list_order");
-    var getList = localStorage.getItem("row_title_file");
-    getList = JSON.parse(getList);
-    getOrder = JSON.parse(getOrder);
-    setOrder({
-      newArr: getOrder.map((val, i, arr) => {
-        return (
-          <li key={i}>
-            <label
-              htmlFor={i}
-              style={{ cursor: "pointer" }}
-            >
-              <b> {val.task}</b>
-            </label>
-          </li>
-        );
-      }),
-    });
-
-  }
+    var che = document.getElementById(e.target.id).checked;
+    if (che === true) {
+      order_process.push({
+        task: e.target.value,
+        id: e.target.id,
+      });
+      localStorage.setItem("list_order", JSON.stringify(order_process));
+      var getOrder = localStorage.getItem("list_order");
+      var getList = localStorage.getItem("row_title_file");
+      getList = JSON.parse(getList);
+      getOrder = JSON.parse(getOrder);
+      setOrder({
+        newArr: getOrder.map((val, i, arr) => {
+          return (
+            <li key={i}>
+              <label htmlFor={i} style={{ cursor: "pointer" }}>
+                <b>{val.task}</b>
+              </label>
+            </li>
+          );
+        }),
+      });
+    } else if (che === false) {
+      let valor = "";
+      console.log(valor);
+      order_process.splice(
+        {
+          task: e.target.value,
+          id: e.target.id,
+        },
+        1
+      );
+      localStorage.setItem("list_order", JSON.stringify(order_process));
+      var getOrder = localStorage.getItem("list_order");
+      var getList = localStorage.getItem("row_title_file");
+      getList = JSON.parse(getList);
+      getOrder = JSON.parse(getOrder);
+      setOrder({
+        newArr: getOrder.map((val, i, arr) => {
+          return (
+            <li key={i}>
+              <label htmlFor={i} style={{ cursor: "pointer" }}>
+                <b> {val.task}</b>
+              </label>
+            </li>
+          );
+        }),
+      });
+    }
   };
-
 
   //icons
   const cubos = <FontAwesomeIcon icon={faCubes} size="6x" />;
   const sleep = <FontAwesomeIcon icon={faBed} size="6x" />;
 
+  
   return (
     <div className="">
       <form
@@ -170,9 +167,18 @@ function Panel() {
         </div>
         <div className="box03">
           <h3> Orden de Tareas</h3>
-          
-            <ul>{order.newArr}</ul>
-            <Link to="/panel__" style={{ textDecoration: 'none', border: 'solid 1px #000', padding:'0.2em' }} >procesar...</Link> 
+
+          <ul>{order.newArr}</ul>
+          <Link
+            to="/panel__"
+            style={{
+              textDecoration: "none",
+              border: "solid 1px #000",
+              padding: "0.2em",
+            }}
+          >
+            procesar...
+          </Link>
         </div>
       </div>
     </div>

@@ -4,14 +4,13 @@ import { Schema, model } from "mongoose";
 
 const tbl_panel_maestro_labs = Schema(
   {
-    descripcion_canal: String,
-    descripcion_cup: String,
-    observacion: String,
-    falso: String,
-    12: Boolean,
-    b: String,
-    igual: Boolean,
-    sigla: String,
+    12: String,
+    Descripcion_Canal: String,
+    Descripcion_CUP: String,
+    OBSERVACION: String,
+    FALSO_VERDADERO: String,
+    B: String,
+    IGUAL: String,
   },
   {
     timestamps: true,

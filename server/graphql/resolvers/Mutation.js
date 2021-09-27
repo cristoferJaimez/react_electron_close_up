@@ -1,6 +1,8 @@
 import userModel from "../../models/tbl_close_up_usuarios.model";
 import preUsersModel from "../../models/tbl_close_up_usuarios_pre_registro.model";
 import colombiaModel from "../../models/tbl_panel_colombia.model";
+import labsModel from "../../models/tbl_panel_maestro_labs.model";
+
 
 const Mutation = {
 
@@ -8,6 +10,13 @@ const Mutation = {
   async createDBcolombia(_, { input }) {
     const newdbColombia = new colombiaModel(input);
     return await newdbColombia.save();
+  },
+
+
+   //CREAR DATO DB LABS 
+   async createDBLABS(_, { input }) {
+    const newdbLABS = new labsModel(input);
+    return await newdbLABS.save();
   },
 
   //crear datos de usuario

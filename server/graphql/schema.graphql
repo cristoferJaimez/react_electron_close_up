@@ -3,14 +3,29 @@ type Query {
   preUsers: [PreUsers!]
   colombia: [Colombia!]
   zonaInfluencia: [Zona!]
+  labs: [Labs!]
 }
 
 type Mutation {
   createrPreUser(input: PreUsersInput): PreUsers
   createUser(input: UserInput): User
 
+
   createDBcolombia(input: dbColombiaInput): Colombia
   createZonaInfluencia(input: zonaInput): Zona
+
+  createLabs(input: LabsInput): Labs
+}
+
+type Labs {
+    _id: ID
+    12: String
+    Descripcion_Canal: String
+    Descripcion_CUP: String
+    OBSERVACION: String
+    FALSO_VERDADERO: String
+    B: String
+    IGUAL: String
 }
 
 type Zona {
@@ -84,6 +99,18 @@ type Colombia {
   Cdg_Utc_CAM: String
   Desc_Utc_CAN: String
   ESTADO_CAO: String
+}
+
+
+
+input LabsInput {
+    12: String
+    Descripcion_Canal: String
+    Descripcion_CUP: String
+    OBSERVACION: String
+    FALSO_VERDADERO: String
+    B: String
+    IGUAL: String
 }
 
 input zonaInput {

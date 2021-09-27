@@ -14,6 +14,13 @@ import Footer from "./components/footer/Footer";
 import Menu from "./components/menu/Menu";
 //moludos Panel
 import Panel from "./components/panel/Panel";
+import Task from "./components/panel/Task";
+import Panel__ from "./components/panel/Panel__";
+import Search_Products from "./components/panel/Search_Products";
+import Search_Labs from "./components/panel/Search_Labs";
+
+
+
 //listar usuarios ver usuarios editar usuarios por admin
 import Users from "./components/users/Users";
 //modulo base de datos
@@ -42,7 +49,17 @@ function App() {
 
 
           <Route path="/fichero_" component={NavBar}></Route>
+          
+          
           <Route path="/panel" component={Panel}></Route>
+          <Route path="/panel__" component={Panel__}></Route>
+          <Route path="/task" component={Task}></Route>
+          <Route path="/search_products" component={Search_Products}></Route>
+          <Route path="/search_labs" component={Search_Labs}></Route>
+
+          
+          
+
           <Route path="/database" component={DataBase}></Route>
       </Switch>
       <Footer />
