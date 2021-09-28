@@ -3,6 +3,7 @@ import preUsersModel from "../../models/tbl_close_up_usuarios_pre_registro.model
 import colombiaModel from "../../models/tbl_panel_colombia.model";
 import labsModel from "../../models/tbl_panel_maestro_labs.model";
 import productModel from "../../models/tbl_panel_maestro_productos.model";
+import apellidoModel from "../../models/tbl_panel_maestro_apellidos.model";
 
 
 
@@ -26,6 +27,14 @@ const Mutation = {
   async createProducts(_, { input }) {
     const newdbProduc = new productModel(input);
     return await newdbProduc.save();
+  },
+
+
+
+  //crear apellido para filtro
+  async createApellido(_, { input }) {
+    const newdbapellido = new apellidoModel(input);
+    return await newdbapellido.save();
   },
 
   //crear datos de usuario

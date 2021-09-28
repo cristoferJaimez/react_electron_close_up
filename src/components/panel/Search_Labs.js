@@ -40,7 +40,7 @@ function Search_Labs() {
   const { loading, error, data } = useQuery(GET_DATA_LABS);
   if (loading) return <p>Cargando Laboratorios...</p>;
   if (error) return `${error} `;
-  console.log(data);
+  //console.log(data);
 
   //orden de tareas
   const list_order = JSON.parse(localStorage.getItem("list_order"));
@@ -63,7 +63,7 @@ function Search_Labs() {
           let iterador = "";
 
           data.labs.map((va, it, ar) => {
-            if (va.Descripcion_Canal === val[list_order[2].id]) {
+              if (val[list_order[2].id].includes(va.Descripcion_Canal)) {
               observacion = va.OBSERVACION;
               lab_1 = val[list_order[2].id];
               lab_2 = va.Descripcion_CUP;
@@ -103,12 +103,12 @@ function Search_Labs() {
         localization={{ header: { actions: "Acciones" } }}
       />
 
-      <Link to="/search_products">
+      <Link to="/search_labs">
         {" "}
         <button>Prev... </button>
       </Link> 
 
-      <Link to="/search_labs">
+      <Link to="/search_names">
         
         <button>Continuar... </button>
       </Link>

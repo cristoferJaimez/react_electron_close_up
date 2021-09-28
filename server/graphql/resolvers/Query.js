@@ -4,6 +4,8 @@ import colombiaModel from "../../models/tbl_panel_colombia.model";
 import zonaModel from "../../models/tbl_panel_zona_influencia.model";
 import labsModel from "../../models/tbl_panel_maestro_labs.model";
 import productModel from "../../models/tbl_panel_maestro_productos.model";
+import apellidoModel from "../../models/tbl_panel_maestro_apellidos.model";
+
 
 const Query = {
   users: async () => {
@@ -28,6 +30,10 @@ const Query = {
 
   product: async () => {
     return await productModel.find();
+  },
+
+  apellido: async () => {
+    return await apellidoModel.find();
   },
 };
 

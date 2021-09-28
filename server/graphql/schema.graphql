@@ -5,6 +5,7 @@ type Query {
   zonaInfluencia: [Zona!]
   labs: [Labs!]
   product: [Products!]
+  apellido: [Apellido!]
 }
 
 type Mutation {
@@ -17,8 +18,15 @@ type Mutation {
   createLabs(input: LabsInput): Labs
 
   createProducts(input: ProductsInput): Products
+
+  createApellido(input: ApellidoInput): Apellido
 }
 
+
+type Apellido {
+ _id : ID!
+ APELLIDOS: String
+}
 
 type Products{
   _id: ID!
@@ -107,6 +115,12 @@ type Colombia {
   Cdg_Utc_CAM: String
   Desc_Utc_CAN: String
   ESTADO_CAO: String
+}
+
+
+
+input ApellidoInput {
+ APELLIDOS: String
 }
 
 

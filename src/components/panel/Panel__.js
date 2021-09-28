@@ -21,7 +21,6 @@ function Panel__() {
   const { loading, error, data } = useQuery(GET_DATA_BASE_COLOMBIA);
   if (loading) return <p>Cargando Zona de Influencia...</p>;
   if (error) return `${error} `;
-  console.log(data);
 
   const columns = [
     {

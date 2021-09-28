@@ -18,6 +18,8 @@ import Task from "./components/panel/Task";
 import Panel__ from "./components/panel/Panel__";
 import Search_Products from "./components/panel/Search_Products";
 import Search_Labs from "./components/panel/Search_Labs";
+import Search_Names from "./components/panel/Search_Names";
+
 
 
 
@@ -56,6 +58,8 @@ function App() {
           <Route path="/task" component={Task}></Route>
           <Route path="/search_products" component={Search_Products}></Route>
           <Route path="/search_labs" component={Search_Labs}></Route>
+          <Route path="/search_names" component={Search_Names}></Route>
+
 
           
           
