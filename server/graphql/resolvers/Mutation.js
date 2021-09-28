@@ -2,6 +2,8 @@ import userModel from "../../models/tbl_close_up_usuarios.model";
 import preUsersModel from "../../models/tbl_close_up_usuarios_pre_registro.model";
 import colombiaModel from "../../models/tbl_panel_colombia.model";
 import labsModel from "../../models/tbl_panel_maestro_labs.model";
+import productModel from "../../models/tbl_panel_maestro_productos.model";
+
 
 
 const Mutation = {
@@ -14,9 +16,16 @@ const Mutation = {
 
 
    //CREAR DATO DB LABS 
-   async createDBLABS(_, { input }) {
+   async createLabs(_, { input }) {
     const newdbLABS = new labsModel(input);
     return await newdbLABS.save();
+  },
+
+
+  //crear producto para filtro
+  async createProducts(_, { input }) {
+    const newdbProduc = new productModel(input);
+    return await newdbProduc.save();
   },
 
   //crear datos de usuario
