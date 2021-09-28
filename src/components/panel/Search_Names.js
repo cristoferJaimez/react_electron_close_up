@@ -60,32 +60,26 @@ function Search_Labs() {
         } else {
           //variables
           iterador = i + 1;
-          let arr_apellidos = [];
           let arr_nombres = [];
-          let arr_nombre = [];
+          let arr_apellidos = [];
+          let arr_nom = [];
 
           name_1 = i + 1 + "/" + val[list_order[3].id];
           observacion = "COMPLETADO!";
 
           arr_nombres = val[list_order[3].id].split(" ");
 
-          data.apellido.map((va, it, ar) => {
-            arr_nombres.map((valno, ino, arrno) => {
-              if (va.APELLIDOS === valno) {
-                arr_apellidos.push(valno);
+          data.apellido.map((vape, iape, arpe) => {
+            arr_nombres.map((valor, ite, array) => {
+              if (vape.APELLIDOS === valor) {
+                arr_apellidos.push(valor);                
               } else {
-                arr_nombre.push(valno);
+                arr_nom.push(valor);                
               }
             });
           });
-          name_2 =
-            arr_apellidos[0] +
-            " " +
-            arr_apellidos[1] +
-            " " +
-            arr_nombre[0] +
-            " " +
-            arr_nombre[1];
+
+          name_2 = arr_apellidos[0]+" "+arr_apellidos[1] 
 
           if (!observacion) {
             observacion = "N/A";

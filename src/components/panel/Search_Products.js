@@ -65,10 +65,10 @@ function Search_Products() {
 
             if ( val[list_order[1].id].includes(va.Producto) ) {
               observacion = va.observacion;
-              producto = val[list_order[1].id];
+              producto = i+1+"/"+val[list_order[1].id];
               coincidencia = va.Producto;
             } else {
-              producto = val[list_order[1].id];
+              producto = i+1+"/"+val[list_order[1].id];
               iterador = i + 1;
             }
           });
