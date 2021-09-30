@@ -12,6 +12,13 @@ import NavBar from "./components/navBar/NavBar";
 import ConectionStatus from "./components/conectionStatus/ConectionStatus";
 import Footer from "./components/footer/Footer";
 import Menu from "./components/menu/Menu";
+//ficheros
+import File_ from "./components/files/File_";
+import File from "./components/files/File_Proccess";
+
+
+
+
 //moludos Panel
 import Panel from "./components/panel/Panel";
 import Task from "./components/panel/Task";
@@ -19,6 +26,10 @@ import Panel__ from "./components/panel/Panel__";
 import Search_Products from "./components/panel/Search_Products";
 import Search_Labs from "./components/panel/Search_Labs";
 import Search_Names from "./components/panel/Search_Names";
+import City_Medic from "./components/panel/City_Medic";
+import Final_Medic from "./components/panel/Final_Medic";
+
+
 
 
 
@@ -51,6 +62,9 @@ function App() {
 
 
           <Route path="/fichero_" component={NavBar}></Route>
+          <Route path="/file_" component={File_}></Route>
+          <Route path="/file_proccess" component={File}></Route>
+
           
           
           <Route path="/panel" component={Panel}></Route>
@@ -59,6 +73,9 @@ function App() {
           <Route path="/search_products" component={Search_Products}></Route>
           <Route path="/search_labs" component={Search_Labs}></Route>
           <Route path="/search_names" component={Search_Names}></Route>
+          <Route path="/city_medic" component={City_Medic}></Route>
+          <Route path="/final_medic" component={Final_Medic}></Route>
+
 
 
           

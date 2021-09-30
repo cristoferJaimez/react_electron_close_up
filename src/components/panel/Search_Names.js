@@ -99,7 +99,7 @@ function Search_Labs() {
           });
         }
       })}
-      {})
+    
       {localStorage.setItem(
         "array_names_ok",
         JSON.stringify(array_names_resultado)
@@ -118,7 +118,7 @@ function Search_Labs() {
         {" "}
         <button>Prev... </button>
       </Link>
-      <Link to="/search_labs">
+      <Link to="/city_medic">
         <button>Continuar... </button>
       </Link>
     </div>

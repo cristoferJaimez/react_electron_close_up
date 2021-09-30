@@ -11,7 +11,7 @@ function NavBar() {
                         <h2>01</h2>
                         <h3>Fichero M&eacute;dico</h3>
                         <p>Modulo dedicado al Análisis y tratamiento de la Información  <b> Fichero M&eacute;dico/Cruces Medicos</b></p>
-                        <Link to="/fichero_" className="btn"> Fichero uno</Link>
+                        <Link to="/file_" className="btn"> Fichero uno</Link>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@ function NavBar() {
                         <h2>02</h2>
                         <h3>Fichero M&eacute;dico</h3>
                         <p>Modulo dedicado al Análisis y tratamiento de la Información  <b> Fichero M&eacute;dico/Base Progress, Pool</b></p>
-                        <Link to="/fichero__" className="btn"> Fichero dos</Link>
+                        <Link to="/file__" className="btn"> Fichero dos</Link>
                     </div>
                 </div>
             </div>

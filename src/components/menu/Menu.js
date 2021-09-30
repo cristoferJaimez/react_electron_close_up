@@ -44,7 +44,7 @@ function Menu() {
 
         <div id="profile">
           <div id="photo">
-            <img src="http://pa1.narvii.com/7509/63222f134a6befd896ee922a576bbe1399bd2c9br1-320-180_00.gif" alt="photo_user" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Circle-icons-tools.svg" alt="photo_user" />
             <div id="name">
               <h4>nombre usuario</h4>
             </div>
@@ -53,12 +53,12 @@ function Menu() {
 
         <div id="menu-items">
           <div className="item">
-            <Link to="/">
+           {/*  <Link to="/">
               <div className="icon">
               {home}
               </div>
               <div className="title">Home</div>
-            </Link>
+            </Link> */}
           </div>
           <div className="item">
             <Link to="/fichero_">
@@ -91,32 +91,32 @@ function Menu() {
 
           <span className=" item separator"></span>
           <div className="item">
-            <Link to="/check_data_base">
+            {/* <Link to="/check_data_base">
               <div className="icon">
                 { cogs }
               </div>
               <div className="title">Configuraciones</div>
-            </Link>
+            </Link> */}
           </div>
 
           <span className=" item separator"></span>
           <div className="item">
-            <Link to="/check_data_base">
+           {/*  <Link to="/check_data_base">
               <div className="icon">
                 { userCog }
               </div>
               <div className="title">Config. del usuario</div>
-            </Link>
+            </Link> */}
           </div>
 
           <span className=" item separator"></span>
           <div className="item">
-            <Link to="/users">
+          {/*   <Link to="/users">
               <div className="icon">
                 { users }
               </div>
               <div className="title">Usuarios</div>
-            </Link>
+            </Link> */}
           </div>
 
        
@@ -124,12 +124,12 @@ function Menu() {
           <div className="item_separator"></div>
 
           <div className="item">
-            <Link to="/check_data_base">
+            {/* <Link to="/check_data_base">
               <div className="icon">
                 { sign_out }
               </div>
               <div className="title">Salir</div>
-            </Link>
+            </Link> */}
           </div>
 
 
