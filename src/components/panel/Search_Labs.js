@@ -65,10 +65,10 @@ function Search_Labs() {
           data.labs.map((va, it, ar) => {
               if (val[list_order[2].id].includes(va.Descripcion_Canal)) {
               observacion = va.OBSERVACION;
-              lab_1 = val[list_order[2].id];
+              lab_1 = i+1 +"/"+ val[list_order[2].id];
               lab_2 = va.Descripcion_CUP;
             } else {
-              lab_1 = val[list_order[2].id];
+              lab_1 = i+1 +"/"+ val[list_order[2].id];
               iterador = i + 1;
             }
           });

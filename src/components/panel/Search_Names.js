@@ -52,6 +52,9 @@ function Search_Labs() {
   let iterador = "";
   let observacion = "";
   //array
+  let array_nombre_list = [];
+  let arr_apellidos = [];
+  let arr_nom = [];
 
   return (
     <div>
@@ -63,27 +66,30 @@ function Search_Labs() {
           let arr_nombres = [];
           let arr_apellidos = [];
           let arr_nom = [];
+          let final = [];
+          let finalT = [];
 
           name_1 = i + 1 + "/" + val[list_order[3].id];
           observacion = "COMPLETADO!";
 
           arr_nombres = val[list_order[3].id].split(" ");
 
-          data.apellido.map((vape, iape, arpe) => {
-            arr_nombres.map((valor, ite, array) => {
-              if (vape.APELLIDOS === valor) {
-                arr_apellidos.push(valor);                
-              } else {
-                arr_nom.push(valor);                
+          arr_nombres.map((a, e, i) => {
+            data.apellido.map((d, id, ad) => {
+              if (d.APELLIDOS === a) {
+                return arr_apellidos.push(a);
               }
             });
+            let arrFilter = new Set(arr_apellidos);
+            let resultado = [...arrFilter];
+            final = resultado.slice(0, 2);
           });
 
-          name_2 = arr_apellidos[0]+" "+arr_apellidos[1] 
+          let nombresString =   val[list_order[3].id]
+          let nombreCortado = nombresString.replace(`${final[0]}`, "")
+          let nombrefinal = nombreCortado.replace(`${final[1]}`, "")
 
-          if (!observacion) {
-            observacion = "N/A";
-          }
+          name_2 = final[0] + " " + final[1] + nombrefinal
 
           array_names_resultado.push({
             observacion: observacion,
@@ -93,12 +99,12 @@ function Search_Labs() {
           });
         }
       })}
-
+      {})
       {localStorage.setItem(
         "array_names_ok",
         JSON.stringify(array_names_resultado)
       )}
-
+      {}
       <MaterialTable
         key={(r) => r._id}
         columns={columns}
@@ -108,12 +114,10 @@ function Search_Labs() {
         options={{ actionsColumnIndex: -1 }}
         localization={{ header: { actions: "Acciones" } }}
       />
-
       <Link to="/search_products">
         {" "}
         <button>Prev... </button>
       </Link>
-
       <Link to="/search_labs">
         <button>Continuar... </button>
       </Link>

@@ -30,12 +30,14 @@ const Mutation = {
   },
 
 
-
+  //CRUD
   //crear apellido para filtro
   async createApellido(_, { input }) {
     const newdbapellido = new apellidoModel(input);
     return await newdbapellido.save();
+    
   },
+
 
   //crear datos de usuario
   async createUser(_, { input }) {

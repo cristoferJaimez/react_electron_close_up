@@ -9,6 +9,7 @@ type Query {
 }
 
 type Mutation {
+  
   createrPreUser(input: PreUsersInput): PreUsers
   createUser(input: UserInput): User
 
