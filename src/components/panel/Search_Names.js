@@ -82,24 +82,25 @@ function Search_Labs() {
             });
             let arrFilter = new Set(arr_apellidos);
             let resultado = [...arrFilter];
-            final = resultado.slice(0, 2);
+            final = resultado.slice(0, 2)
+            
           });
 
-          let nombresString =   val[list_order[3].id]
-          let nombreCortado = nombresString.replace(`${final[0]}`, "")
-          let nombrefinal = nombreCortado.replace(`${final[1]}`, "")
+          let nombresString = val[list_order[3].id];
+          let nombreCortado = nombresString.replace(`${final[0]}`, "");
+          let nombrefinal = nombreCortado.replace(`${final[1]}`, "");
 
-          name_2 = final[0] + " " + final[1] + nombrefinal
+          name_2 = final[0] + " " + final[1] + nombrefinal;
 
           array_names_resultado.push({
             observacion: observacion,
             id_: iterador,
-            name_1: name_1,
-            name_2: name_2.replace(/ñ/gi, "#"),
+            name_1: name_1.replace(/undefined/gi, ""),
+            name_2: name_2.replace(/undefined/gi, ""),
           });
         }
       })}
-    
+
       {localStorage.setItem(
         "array_names_ok",
         JSON.stringify(array_names_resultado)
