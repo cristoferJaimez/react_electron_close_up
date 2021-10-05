@@ -75,9 +75,9 @@ function Final_Medic() {
   let nombre_medico = "";
   let res = "";
 
-  console.log("db load...");
   return (
     <div>
+
       {arr_nom.map((val, i, arr) => {
         let valor = val.concatenado;
         let valor_ = "";

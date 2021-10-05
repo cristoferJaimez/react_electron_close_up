@@ -35,11 +35,6 @@ function Final_Medic_Two() {
 
   const columns = [
     {
-      title: "CODIGO UNICO",
-      field: "codigo_unico",
-    },
-
-    {
       title: "CODIGO CIUDAD",
       field: "codigo_ciudad",
     },
@@ -87,7 +82,8 @@ function Final_Medic_Two() {
   let nom_et_1 = "";
   let nom_et_2 = "";
   let res = "";
-  let nombre = "";
+  let nom_medico_ = "";
+  let nom_medico_final = "";
   let localidad = "";
   let ciudad = "";
   let observacion = "";
@@ -95,55 +91,62 @@ function Final_Medic_Two() {
   let codigo_ciudad = "";
   let codigo_unico = "";
   let valor_ = "";
+
   console.log("db load...");
   return (
     <div>
-      {arr_nom.map((val, i, arr) => {
-        nom_et_1 = val.name_1.substr(2);
-        for (let a = 0; a <= 30; a++) {
-          nom_et_2 = a + "" + nom_et_1;
-          data.colombia.map((valc, ic, arrc) => {
-            valor_ = valc.Codigo_de_Ciudad_y_Nombre_del_Medico_Arreglado_CG;
-            if (valor_ != null) {
-              let valor_if = valor_.split(" ").join("");
-              if (nom_et_2.includes(valor_if)) {
-                res = true;
-                nombre = valc.Nombre_del_Medico_CO;
-                localidad = valc.Localidad_CK;
-                codigo_ciudad = valc.COD_CIUDAD_CJ;
-                codigo_unico = valc.Codigo_de_Ciudad_y_Codigo_de_Medico_Audi_CC;
-                ciudad = val.CIUDAD_CL;
-                observacion = "MEDICO VALIDO";
-                rechazado = "NO";
-              }
-            }
-          });
-        }
 
-        if (!nombre || res != true) {
-          res = true;
-          nombre = "N/A";
+      {arr_nom.map((val, i, arr) => {
+        let name_ = val.name_1.substr(2);
+
+        data.colombia.map((valc, ic, arrc) => {
+          let valor_ = valc.Codigo_de_Ciudad_y_Nombre_del_Medico_Arreglado_CG;
+
+          if (valor_ != null) {
+            let name_if = name_.split(" ").sort().join("");
+            let nama_co_if = valor_.split(" ").sort().join("");
+
+            if (nama_co_if.includes(name_if)) {
+              nom_medico_final =
+                valc.Codigo_de_Ciudad_y_Nombre_del_Medico_Arreglado_CG;
+              rechazado = "NO";
+              observacion = "MEDICO VALIDO";
+              res = true;
+              codigo_ciudad = valc.COD_CIUDAD_CJ
+              nom_medico_ = valc.Nombre_del_Medico_CO;
+              localidad = valc.Localidad_CK;
+              ciudad = valc.CIUDAD_CL
+            }
+          }
+        });
+
+        if (res === false || res == "") {
+          nom_medico_final = "N/A";
           localidad = "N/A";
-          codigo_ciudad = "N/A";
-          codigo_unico = "N/A";
           ciudad = "N/A";
-          observacion = "MEDICO NO VALIDO";
+          codigo_ciudad = "N/A";
           rechazado = "SI";
-          nombre = val.name_1;
+          nom_medico_ = "N/A";
+          codigo_unico = "N/A";
+
+          observacion = "MEDICO NO VALIDO";
         }
 
         array_medicos_final.push({
-          id_: val.id_,
-          codigo_unico: codigo_unico,
+          name_1: val.name_1,
+          nom_medico: nom_medico_,
           codigo_ciudad: codigo_ciudad,
           localidad: localidad,
           ciudad: ciudad,
+          codigo_ciudad: codigo_ciudad,
+          name_2: nom_medico_final,
+          rechazado: rechazado,
           observacion: observacion,
-          nom_medico: nombre,
         });
 
         res = false;
       })}
+
       <MaterialTable
         key={(r) => r._id}
         columns={columns}
