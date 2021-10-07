@@ -3,34 +3,9 @@ import MaterialTable from "material-table";
 
 import "../../css/loading.css";
 
-import { gql } from "apollo-boost";
-import { useQuery } from "@apollo/react-hooks";
-
-function Final_Medic_Two() {
-  const GET_DATA_BASE_COLOMBIA = gql`
-    {
-      colombia {
-        _id
-        COD_CIUDAD_CJ
-        Localidad_CK
-        CIUDAD_CL
-        Nombre_del_Medico_CO
-        Codigo_de_Ciudad_y_Codigo_de_Medico_Audi_CC
-        Codigo_de_Ciudad_y_Nombre_del_Medico_Arreglado_CG
-        Nombre_del_Medico_CO
-      }
-    }
-  `;
-
-  const { loading, error, data } = useQuery(GET_DATA_BASE_COLOMBIA);
-  if (loading)
-    return (
-      <p className="line-1 anim-typewriter">
-        Analizando Datos N/A.....................
-      </p>
-    );
-  if (error) return `${error} `;
-
+function Final_Medic_Two(props) {
+  const data = props.datos;
+  console.log(data);
   //console.log(data);
 
   const columns = [
@@ -79,8 +54,6 @@ function Final_Medic_Two() {
   const arr_nom = JSON.parse(localStorage.getItem("array_N_A"));
   //console.log(content_doc);
   let array_medicos_final = [];
-  let nom_et_1 = "";
-  let nom_et_2 = "";
   let res = "";
   let nom_medico_ = "";
   let nom_medico_final = "";
@@ -90,16 +63,13 @@ function Final_Medic_Two() {
   let rechazado = "";
   let codigo_ciudad = "";
   let codigo_unico = "";
-  let valor_ = "";
 
-  console.log("db load...");
   return (
     <div>
-
       {arr_nom.map((val, i, arr) => {
         let name_ = val.name_1.substr(2);
 
-        data.colombia.map((valc, ic, arrc) => {
+        data.map((valc, ic, arrc) => {
           let valor_ = valc.Codigo_de_Ciudad_y_Nombre_del_Medico_Arreglado_CG;
 
           if (valor_ != null) {
@@ -112,10 +82,24 @@ function Final_Medic_Two() {
               rechazado = "NO";
               observacion = "MEDICO VALIDO";
               res = true;
-              codigo_ciudad = valc.COD_CIUDAD_CJ
+              codigo_ciudad = valc.COD_CIUDAD_CJ;
               nom_medico_ = valc.Nombre_del_Medico_CO;
               localidad = valc.Localidad_CK;
-              ciudad = valc.CIUDAD_CL
+              ciudad = valc.CIUDAD_CL;
+
+              array_medicos_final.push({
+                name_1: val.name_1,
+                nom_medico: nom_medico_,
+                codigo_ciudad: codigo_ciudad,
+                localidad: localidad,
+                ciudad: ciudad,
+                codigo_ciudad: codigo_ciudad,
+                name_2: nom_medico_final,
+                rechazado: rechazado,
+                observacion: observacion,
+              });
+
+             
             }
           }
         });
@@ -128,7 +112,6 @@ function Final_Medic_Two() {
           rechazado = "SI";
           nom_medico_ = "N/A";
           codigo_unico = "N/A";
-
           observacion = "MEDICO NO VALIDO";
         }
 
@@ -160,11 +143,11 @@ function Final_Medic_Two() {
         }}
         localization={{ header: { actions: "Acciones" } }}
       />
-      <Link to="/search_names">
+      <Link to="/final_medic">
         {" "}
         <button>Prev... </button>
       </Link>
-      <Link to="/final_medic_two">
+      <Link to="/document">
         <button>Continuar... </button>
       </Link>
     </div>

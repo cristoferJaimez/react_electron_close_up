@@ -26,6 +26,7 @@ import Search_Names from "./components/panel/Search_Names";
 import City_Medic from "./components/panel/City_Medic";
 import Final_Medic from "./components/panel/Final_Medic";
 import Final_Medic_Two from "./components/panel/Final_Medic_Two";
+import Document from "./components/panel/Document";
 
 //listar usuarios ver usuarios editar usuarios por admin
 import Users from "./components/users/Users";
@@ -62,6 +63,8 @@ function App() {
         <Route path="/city_medic" component={City_Medic}></Route>
         <Route path="/final_medic" component={Final_Medic}></Route>
         <Route path="/final_medic_two" component={Final_Medic_Two}></Route>
+        <Route path="/document" component={Document}></Route>
+
 
         <Route path="/database" component={DataBase}></Route>
       </Switch>

@@ -5,6 +5,7 @@ import "../../css/loading.css";
 
 import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
+import Final_Medic_Two from "./Final_Medic_Two";
 
 function Final_Medic() {
   const GET_DATA_BASE_COLOMBIA = gql`
@@ -14,6 +15,9 @@ function Final_Medic() {
         Codigo_de_Ciudad_y_Codigo_de_Medico_Audi_CC
         Codigo_de_Ciudad_y_Nombre_del_Medico_Arreglado_CG
         Nombre_del_Medico_CO
+        COD_CIUDAD_CJ
+        Localidad_CK
+        CIUDAD_CL
       }
     }
   `;
@@ -75,9 +79,9 @@ function Final_Medic() {
   let nombre_medico = "";
   let res = "";
 
+  console.log("db load...");
   return (
     <div>
-
       {arr_nom.map((val, i, arr) => {
         let valor = val.concatenado;
         let valor_ = "";
@@ -143,13 +147,10 @@ function Final_Medic() {
         options={{ actionsColumnIndex: -1 }}
         localization={{ header: { actions: "Acciones" } }}
       />
-      <Link to="/city_medic">
-        {" "}
-        <button>Prev... </button>
-      </Link>
-      <Link to="/final_medic_two">
-        <button>Continuar... </button>
-      </Link>
+
+      <Final_Medic_Two datos={data.colombia} />
+
+      
     </div>
   );
 }
