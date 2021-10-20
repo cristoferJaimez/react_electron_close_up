@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
+    "@date-io/date-fns": "^1.3.13",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
@@ -25,6 +26,7 @@
     "browserify-fs": "^1.0.0",
     "concurrently": "^6.2.1",
     "cross-env": "^7.0.3",
+    "date-fns": "^2.25.0",
     "dotenv": "^10.0.0",
     "electron": "^14.0.1",
     "express": "^4.17.1",

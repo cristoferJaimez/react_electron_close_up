@@ -26,7 +26,7 @@ function Final_Medic() {
   if (loading)
     return (
       <p className="line-1 anim-typewriter">
-        Analizando Datos.....................
+        Descargando Base de Datos  por favor espere.
       </p>
     );
   if (error) return `${error} `;
@@ -82,52 +82,67 @@ function Final_Medic() {
   console.log("db load...");
   return (
     <div>
-      {arr_nom.map((val, i, arr) => {
-        let valor = val.concatenado;
-        let valor_ = "";
-        let valor_if_ = "";
-        if (valor != null) {
-          valor_if_ = valor.split(" ").join("");
-        }
-        data.colombia.map((valc, ic, arrc) => {
-          valor_ = valc.Codigo_de_Ciudad_y_Nombre_del_Medico_Arreglado_CG;
-          if (valor_ != null) {
-            let valor_if__ = valor_.split(" ").join("");
+      {
 
-            if (valor_if_.includes(valor_if__)) {
-              codigo_medico = valc.Codigo_de_Ciudad_y_Codigo_de_Medico_Audi_CC;
-              nombre_medico = valc.Nombre_del_Medico_CO;
-              rechazado_medico = "NO";
-              observacion = "MEDICO VALIDO";
-              res = true;
-            } else if (!valor_if_.includes(valor_if__)) {
-            }
-          } else {
+
+        arr_nom.map((val, i, arr) => {
+          let valor = val.concatenado;
+          let valor_ = "";
+          let valor_if_ = "";
+
+
+          if (valor != null) {
+            valor_if_ = valor.split(" ").join("");
           }
-        });
+          data.colombia.map((valc, ic, arrc) => {
+            valor_ = valc.Codigo_de_Ciudad_y_Nombre_del_Medico_Arreglado_CG;
 
-        if (!nombre_medico || res != true) {
-          nombre_medico = "N/A";
-          rechazado_medico = "SI";
-          observacion = "MEDICO NO VALIDO";
-          codigo_medico = "N/A";
-          array_N_A.push({
-            id_: val.id_,
-            name_1: val.concatenado,
+
+            if (valor_ != null) {
+              let valor_if__ = valor_.split(" ").join("");
+
+              if (valor_if_.toUpperCase().includes(valor_if__.toUpperCase())) {
+                codigo_medico = valc.Codigo_de_Ciudad_y_Codigo_de_Medico_Audi_CC;
+                nombre_medico = valc.Nombre_del_Medico_CO;
+                rechazado_medico = "NO";
+                observacion = "MEDICO VALIDO";
+                res = true;
+              } else if (!valor_if_.includes(valor_if__)) {
+              }
+            } else {
+            }
           });
-        }
 
-        array_medicos_final.push({
-          id_: val.id_,
-          codigo_unico: codigo_medico,
-          name_1: val.concatenado,
-          rechazado: rechazado_medico,
-          observacion: observacion,
-          nom_medico: nombre_medico,
-        });
+          if (!nombre_medico || res != true) {
+            nombre_medico = "N/A";
+            rechazado_medico = "SI";
+            observacion = "MEDICO NO VALIDO";
+            codigo_medico = "N/A";
+            array_N_A.push({
+              id_: val.id_,
+              name_1: val.concatenado,
+            });
+          }
 
-        res = false;
-      })}
+          array_medicos_final.push({
+            id_: val.id_,
+            codigo_unico: codigo_medico,
+            name_1: val.concatenado,
+            rechazado: rechazado_medico,
+            observacion: observacion,
+            nom_medico: nombre_medico,
+          });
+
+          res = false;
+        })
+
+
+      }
+
+
+
+
+
 
       {
         // guardar datos en local storage
@@ -135,7 +150,7 @@ function Final_Medic() {
           "06array_name_concatenado_ok",
           JSON.stringify(array_medicos_final)
         ),
-        localStorage.setItem("array_N_A", JSON.stringify(array_N_A)))
+          localStorage.setItem("array_N_A", JSON.stringify(array_N_A)))
       }
 
       <MaterialTable
@@ -144,13 +159,17 @@ function Final_Medic() {
         data={array_medicos_final}
         style={{ fontSize: "0.7em" }}
         title="MEDICO FINAL (A)"
-        options={{ actionsColumnIndex: -1 }}
+        options={{
+          actionsColumnIndex: -1,
+          exportButton: true,
+          exportAllData: true,
+        }}
         localization={{ header: { actions: "Acciones" } }}
       />
 
-      <Final_Medic_Two datos={data.colombia} />
+      {/*<Final_Medic_Two datos={data.colombia} />*/}
 
-      
+
     </div>
   );
 }

@@ -79,7 +79,7 @@ function Panel__() {
           let codigo = "";
           // console.log(val[list_order[0].id]);
           data.zonaInfluencia.map((va, it, ar) => {
-            if (va.ZONAS_DE_INFLUENCIA === val[list_order[0].id]) {
+            if (va.ZONAS_DE_INFLUENCIA === val[list_order[0].id].toUpperCase()) {
               //console.log("coincide");
               ciudad = i+1 + "/" + val[list_order[0].id];
               iterador = val[3];
