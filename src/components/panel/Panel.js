@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
 import "../../css/DataBase.css";
 import "../../css/Panel.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -26,7 +27,8 @@ function Panel() {
 
   const handleChange = async (e) => {
     // Guardo el objeto como un string
-    Read(e.target.files[0]);
+    await Read(e.target.files[0]);
+  
     setWordSpace({
       display: "none",
     });

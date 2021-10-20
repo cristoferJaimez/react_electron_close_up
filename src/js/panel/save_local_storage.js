@@ -1,4 +1,8 @@
 import list_table from "./list_table"; 
+const fs = require('fs')
+const path = require('path')
+
+
 // construir tabla
 export default async function Table_(sheet) {
     const rows = [];
@@ -18,19 +22,18 @@ export default async function Table_(sheet) {
     
     //filas set de datos
     localStorage.setItem("row_title_file", JSON.stringify(row_title));
-  
+    //sessionStorage.setItem("row_title_file", JSON.stringify(row_title))
     //contenido del archivo
     rows.forEach((e) => {
         row_content.push(e)
     });
   
-    localStorage.setItem("row_content_file", JSON.stringify(row_content));
-    //list_table();
-  
+    localStorage.setItem("row_content_file",  JSON.stringify(row_content));
+    //sessionStorage.setItem("row_content_file", JSON.stringify(row_content))
+    
+ 
+     
   }
-  
-  
-  
-  
+    
   // escuchar lista para procesar
   
