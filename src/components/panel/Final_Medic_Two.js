@@ -96,8 +96,8 @@ function Final_Medic_Two() {
       {arr_nom.map((val, i, arr) => {
         let name_ = val.name_1.substr(2);
 
-        data.colombia.reduce((valc, ic, arrc) => {
-          let valor_ = valc.Codigo_de_Ciudad_y_Nombre_del_Medico_Arreglado_CG;
+        data.colombia.find(function(e){
+          let valor_ = e.Codigo_de_Ciudad_y_Nombre_del_Medico_Arreglado_CG;
 
           if (valor_ != null) {
             let name_if = name_.split(" ").sort().join("");
@@ -105,14 +105,14 @@ function Final_Medic_Two() {
 
             if (nama_co_if.includes(name_if)) {
               nom_medico_final =
-                valc.Codigo_de_Ciudad_y_Nombre_del_Medico_Arreglado_CG;
+                e.Codigo_de_Ciudad_y_Nombre_del_Medico_Arreglado_CG;
               rechazado = "NO";
               observacion = "MEDICO VALIDO";
               res = true;
-              codigo_ciudad = valc.COD_CIUDAD_CJ;
-              nom_medico_ = valc.Nombre_del_Medico_CO;
-              localidad = valc.Localidad_CK;
-              ciudad = valc.CIUDAD_CL;
+              codigo_ciudad = e.COD_CIUDAD_CJ;
+              nom_medico_ = e.Nombre_del_Medico_CO;
+              localidad = e.Localidad_CK;
+              ciudad = e.CIUDAD_CL;
 
               array_medicos_final.push({
                 name_1: val.name_1,
