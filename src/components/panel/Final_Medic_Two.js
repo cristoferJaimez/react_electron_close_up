@@ -1,12 +1,39 @@
 import { Link } from "react-router-dom";
 import MaterialTable from "material-table";
 
+import { gql } from "apollo-boost";
+import { useQuery } from "@apollo/react-hooks";
 import "../../css/loading.css";
 
-function Final_Medic_Two(props) {
-  const data = props.datos;
-  console.log(data);
+function Final_Medic_Two() {
+
+  const GET_DATA_BASE_COLOMBIA = gql`
+  {
+    colombia {
+      _id
+      Codigo_de_Ciudad_y_Codigo_de_Medico_Audi_CC
+      Codigo_de_Ciudad_y_Nombre_del_Medico_Arreglado_CG
+      Nombre_del_Medico_CO
+      COD_CIUDAD_CJ
+      Localidad_CK
+      CIUDAD_CL
+    }
+  }
+`
+
+
+  /* const data = props.datos;
+  console.log(data); */
   //console.log(data);
+
+  const { loading, error, data } = useQuery(GET_DATA_BASE_COLOMBIA);
+  if (loading)
+    return (
+      <p className="line-1 anim-typewriter">
+        Descargando Base de Datos  por favor espere.
+      </p>
+    );
+  if (error) return `${error} `;
 
   const columns = [
     {
@@ -69,7 +96,7 @@ function Final_Medic_Two(props) {
       {arr_nom.map((val, i, arr) => {
         let name_ = val.name_1.substr(2);
 
-        data.map((valc, ic, arrc) => {
+        data.colombia.reduce((valc, ic, arrc) => {
           let valor_ = valc.Codigo_de_Ciudad_y_Nombre_del_Medico_Arreglado_CG;
 
           if (valor_ != null) {
@@ -143,13 +170,19 @@ function Final_Medic_Two(props) {
         }}
         localization={{ header: { actions: "Acciones" } }}
       />
-      <Link to="/final_medic">
-        {" "}
-        <button>Prev... </button>
-      </Link>
-      <Link to="/document">
-        <button>Continuar... </button>
-      </Link>
+     
+
+      <hr />
+      <div className="right">
+        <Link to="/final_medic">
+          <button className="btn"> <span className="arrow_">❰</span> Anterior</button>
+        </Link>
+        <Link to="/document">
+          <button  className="btn">Continuar <span className="arrow">❯</span></button>
+        </Link>
+
+      </div>
+      <hr />
     </div>
   );
 }

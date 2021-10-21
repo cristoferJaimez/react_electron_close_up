@@ -30,9 +30,6 @@ function Final_Medic() {
       </p>
     );
   if (error) return `${error} `;
-
-  //console.log(data);
-
   const columns = [
     {
       title: "id",
@@ -67,7 +64,6 @@ function Final_Medic() {
   ];
 
   //console.log(list_order);
-
   // contenido del documento a comparar
   const arr_nom = JSON.parse(localStorage.getItem("array_con_cod_name_ok"));
   //console.log(content_doc);
@@ -78,12 +74,9 @@ function Final_Medic() {
   let rechazado_medico = "";
   let nombre_medico = "";
   let res = "";
-
-  console.log("db load...");
   return (
     <div>
       {
-
 
         arr_nom.map((val, i, arr) => {
           let valor = val.concatenado;
@@ -94,24 +87,62 @@ function Final_Medic() {
           if (valor != null) {
             valor_if_ = valor.split(" ").join("");
           }
-          data.colombia.map((valc, ic, arrc) => {
-            valor_ = valc.Codigo_de_Ciudad_y_Nombre_del_Medico_Arreglado_CG;
+
+
+            data.colombia.find( function(e) {
+              valor_ = e.Codigo_de_Ciudad_y_Nombre_del_Medico_Arreglado_CG;
+
+
+              if (valor_ != null) {
+                let valor_if__ = valor_.split(" ").join("");
+  
+                if (valor_if_.toUpperCase().includes(valor_if__.toUpperCase())) {
+                return  codigo_medico = e.Codigo_de_Ciudad_y_Codigo_de_Medico_Audi_CC,
+                  nombre_medico = e.Nombre_del_Medico_CO,
+                  rechazado_medico = "NO",
+                  observacion = "MEDICO VALIDO",
+                  res = true
+                }
+              }
+            } )
+
+     /*      data.colombia.find(e => {
+            valor_ = e.Codigo_de_Ciudad_y_Nombre_del_Medico_Arreglado_CG;
 
 
             if (valor_ != null) {
               let valor_if__ = valor_.split(" ").join("");
 
               if (valor_if_.toUpperCase().includes(valor_if__.toUpperCase())) {
-                codigo_medico = valc.Codigo_de_Ciudad_y_Codigo_de_Medico_Audi_CC;
-                nombre_medico = valc.Nombre_del_Medico_CO;
+                codigo_medico = e.Codigo_de_Ciudad_y_Codigo_de_Medico_Audi_CC;
+                nombre_medico = e.Nombre_del_Medico_CO;
                 rechazado_medico = "NO";
                 observacion = "MEDICO VALIDO";
                 res = true;
-              } else if (!valor_if_.includes(valor_if__)) {
               }
-            } else {
             }
-          });
+
+
+          }); */
+          /*     data.colombia.map((valc, ic, arrc) => {
+                valor_ = valc.Codigo_de_Ciudad_y_Nombre_del_Medico_Arreglado_CG;
+    
+    
+                if (valor_ != null) {
+                  let valor_if__ = valor_.split(" ").join("");
+    
+                  if (valor_if_.toUpperCase().includes(valor_if__.toUpperCase())) {
+                    codigo_medico = valc.Codigo_de_Ciudad_y_Codigo_de_Medico_Audi_CC;
+                    nombre_medico = valc.Nombre_del_Medico_CO;
+                    rechazado_medico = "NO";
+                    observacion = "MEDICO VALIDO";
+                    res = true;
+    
+                  } else if (!valor_if_.includes(valor_if__)) {
+                  }
+                } else {
+                }
+              }); */
 
           if (!nombre_medico || res != true) {
             nombre_medico = "N/A";
@@ -169,6 +200,17 @@ function Final_Medic() {
 
       {/*<Final_Medic_Two datos={data.colombia} />*/}
 
+      <hr />
+      <div className="right">
+        <Link to="/final_medic">
+          <button className="btn"> <span className="arrow_">❰</span> Anterior</button>
+        </Link>
+        <Link to="/final_medic_two">
+          <button className="btn">Continuar <span className="arrow">❯</span></button>
+        </Link>
+
+      </div>
+      <hr />
 
     </div>
   );

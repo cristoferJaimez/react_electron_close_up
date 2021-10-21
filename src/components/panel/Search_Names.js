@@ -58,6 +58,8 @@ function Search_Labs() {
 
   return (
     <div>
+      <h1> Organizar Nombres </h1>
+      <br/>
       {content_doc.map((val, i, arr) => {
         if (i === 0) {
         } else {
@@ -111,17 +113,22 @@ function Search_Labs() {
         columns={columns}
         data={array_names_resultado}
         style={{ fontSize: "0.7em" }}
-        title="BUSCAR MEDICO"
+        title="Organizar Nombres"
         options={{ actionsColumnIndex: -1 }}
         localization={{ header: { actions: "Acciones" } }}
       />
-      <Link to="/search_products">
-        {" "}
-        <button>Prev... </button>
-      </Link>
-      <Link to="/city_medic">
-        <button>Continuar... </button>
-      </Link>
+  
+      <hr />
+      <div className="right">
+        <Link to="/search_products">
+          <button className="btn"> <span className="arrow_">❰</span> Anterior</button>
+        </Link>
+        <Link to="/city_medic">
+          <button  className="btn">Continuar <span className="arrow">❯</span></button>
+        </Link>
+
+      </div>
+      <hr />
     </div>
   );
 }

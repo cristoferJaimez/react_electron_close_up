@@ -3,6 +3,8 @@ import { gql } from "apollo-boost";
 import { useQuery } from "@apollo/react-hooks";
 import MaterialTable from "material-table";
 
+import "../../css/buttom.css";
+
 function Search_Labs() {
   const columns = [
     {
@@ -38,7 +40,7 @@ function Search_Labs() {
   `;
 
   const { loading, error, data } = useQuery(GET_DATA_LABS);
-  if (loading) return <p>Cargando Laboratorios...</p>;
+  if (loading) return <p>Cargando Laboratorios.</p>;
   if (error) return `${error} `;
   //console.log(data);
 
@@ -54,6 +56,8 @@ function Search_Labs() {
 
   return (
     <div>
+      <h1>Panel  Laboratorios</h1>
+      <br />
       {content_doc.map((val, i, arr) => {
         if (i === 0) {
         } else {
@@ -63,12 +67,12 @@ function Search_Labs() {
           let iterador = "";
 
           data.labs.map((va, it, ar) => {
-              if (val[list_order[2].id].includes(va.Descripcion_Canal)) {
+            if (val[list_order[2].id].includes(va.Descripcion_CUP)) {
               observacion = va.OBSERVACION;
-              lab_1 = i+1 +"/"+ val[list_order[2].id];
+              lab_1 = i + 1 + "/" + val[list_order[2].id];
               lab_2 = va.Descripcion_CUP;
             } else {
-              lab_1 = i+1 +"/"+ val[list_order[2].id];
+              lab_1 = i + 1 + "/" + val[list_order[2].id];
               iterador = i + 1;
             }
           });
@@ -99,19 +103,25 @@ function Search_Labs() {
         data={array_labs_resultado}
         style={{ fontSize: "0.7em" }}
         title="BUSCAR LABORATORIO"
-        options={{ actionsColumnIndex: -1 }}
+        options={{ actionsColumnIndex: -1,
+          exportButton: true,
+          exportAllData: true,
+        }}
         localization={{ header: { actions: "Acciones" } }}
       />
 
-      <Link to="/search_labs">
-        {" "}
-        <button>Prev... </button>
-      </Link> 
 
-      <Link to="/search_names">
-        
-        <button>Continuar... </button>
-      </Link>
+      <hr />
+      <div className="right">
+        <Link to="/search_products">
+          <button className="btn"> <span className="arrow_">❰</span> Anterior</button>
+        </Link>
+        <Link to="/search_names">
+          <button  className="btn">Continuar <span className="arrow">❯</span></button>
+        </Link>
+
+      </div>
+      <hr />
     </div>
   );
 }

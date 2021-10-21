@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import "../../css/DataBase.css";
+import "../../css/loading.css";
+import "../../js/panel/loading.js";
 import "../../css/Panel.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCubes, faBed } from "@fortawesome/free-solid-svg-icons";
@@ -14,6 +16,11 @@ function Panel() {
   const [wordSpace, setWordSpace] = useState({
     display: "",
   });
+
+
+  const [view, setView] = useState({
+    display : "none"
+  })
 
   const [arr, setArr] = useState({
     name: "",
@@ -32,6 +39,10 @@ function Panel() {
     setWordSpace({
       display: "none",
     });
+
+    setView({
+      display: ""
+    })
     setArr({
       stated: <h3 id="loading">Espere un momento por favor...</h3>,
     });
@@ -88,7 +99,7 @@ function Panel() {
         newArr: getOrder.map((val, i, arr) => {
           return (
             <li key={i}>
-              <label htmlFor={i} style={{ cursor: "pointer" }}>
+              <label htmlFor={i} style={{ cursor: "none" }}>
                 <b>{val.task}</b>
               </label>
             </li>
@@ -113,8 +124,8 @@ function Panel() {
       setOrder({
         newArr: getOrder.map((val, i, arr) => {
           return (
-            <li key={i}>
-              <label htmlFor={i} style={{ cursor: "pointer" }}>
+            <li key={i} disabled>
+              <label htmlFor={i} style={{  }}>
                 <b> {val.task}</b>
               </label>
             </li>
@@ -131,6 +142,11 @@ function Panel() {
   
   return (
     <div className="">
+
+
+
+      <h1>Panel Captura Electr&oacute;nica</h1>
+      <br />
       <form
         style={{ display: `${wordSpace.display}` }}
         className="form"
@@ -152,6 +168,7 @@ function Panel() {
               id="file"
               placeholder=" "
               onChange={handleChange}
+              onclick="document.body.style.cursor='wait'; return true;"
             />
             <label htmlFor="file" className="form_label">
               Subir Archivo
@@ -160,27 +177,32 @@ function Panel() {
         </div>
       </form>
       <div id="loading">...</div>
-      <div id="wordSpace " className="box01">
+      <div id="wordSpace " style={{display: `${view.display}`  }} className="box01">
         <div className="box02">
           <h3> {arr.name}</h3>
           <form>
-            <ul style={{ listStyle: "none" }}>{arr.stated}</ul>
+            <ul style={{ listStyle: "none" ,  marginLeft: 50 }}>{arr.stated}</ul>
           </form>
         </div>
-        <div className="box03">
+        <div className="box03" style= {{ marginLeft: 40}}  >
           <h3> Orden de Tareas</h3>
 
-          <ul>{order.newArr}</ul>
+          <ol>{order.newArr}</ol>
           <Link
+            
             to="/panel__"
             style={{
               textDecoration: "none",
               border: "solid 1px #000",
+              borderRadius : 10  ,
+              marginLeft: 50,
               padding: "0.2em",
             }}
+            onclick="document.body.style.cursor='wait'; return true;"
           >
-            procesar...
+            procesar
           </Link>
+         
         </div>
       </div>
     </div>

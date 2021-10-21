@@ -49,6 +49,19 @@ export default function Document() {
     }
   });
 
+  //agrgar ciudades
+  //
+ let arr_contenido_ = []
+ 
+  arr_contenido_.push(
+    arr_01_ciudades,
+    arr_02_productos,
+    arr_03_laboratorios,
+    arr_04_nombres,
+    arr_05_nombres_concatenado,
+    arr_06_buscar_nombres_01
+  )
+
   columns_title.push(
     {
       title: "<<>>",

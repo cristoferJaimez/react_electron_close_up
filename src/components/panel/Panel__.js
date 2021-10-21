@@ -69,6 +69,8 @@ function Panel__() {
   let array_ciudad_resultado = [];
   return (
     <div>
+      <h1><sub>Panel Zona de Influencia</sub></h1> 
+      <br />
       {content_doc.map((val, i, arr) => {
         if (i === 0) {
         } else {
@@ -79,7 +81,8 @@ function Panel__() {
           let codigo = "";
           // console.log(val[list_order[0].id]);
           data.zonaInfluencia.map((va, it, ar) => {
-            if (va.ZONAS_DE_INFLUENCIA === val[list_order[0].id].toUpperCase()) {
+            if  (!val[list_order[0].id].toUpperCase()){} else
+            if (va.ZONAS_DE_INFLUENCIA.toUpperCase() === val[list_order[0].id].toUpperCase()) {
               //console.log("coincide");
               ciudad = i+1 + "/" + val[list_order[0].id];
               iterador = val[3];
@@ -122,10 +125,20 @@ function Panel__() {
         style={{ fontSize: "0.7em" }}
         title="Codigo de Ciudades"
        
-        options={{ actionsColumnIndex: -1 }}
+        options={{ actionsColumnIndex: -1,exportButton: true,
+          exportAllData: true, }}
         localization={{ header: { actions: "Acciones" } }}
       />
-     <Link to="/search_products"> <button>Continuar...  </button></Link>
+     
+     <hr />
+      <div className="right">
+        <Link to="/search_products">
+          <button  className="btn">Continuar <span className="arrow">❯</span></button>
+        </Link>
+
+      </div>
+      <hr />
+          
     </div>
   );
 }

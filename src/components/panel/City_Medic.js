@@ -39,6 +39,8 @@ function City_Medic() {
 
   return (
     <div>
+      <h1>Concatenar Ciudad + Nombre</h1>
+      <br/>
       {arr_ciudades_codigo.map((val, i, arr) => {
         arr_nom_medico.map((nom, inom, arrnom) => {
           if (val.id_ === nom.id_) {
@@ -66,13 +68,19 @@ function City_Medic() {
         options={{ actionsColumnIndex: -1 }}
         localization={{ header: { actions: "Acciones" } }}
       />
-      <Link to="/search_names">
-        {" "}
-        <button>Prev... </button>
-      </Link>
-      <Link to="/final_medic">
-        <button>Continuar... </button>
-      </Link>
+      
+      <hr />
+      <div className="right">
+        <Link to="/search_names">
+          <button className="btn"> <span className="arrow_">❰</span> Anterior</button>
+        </Link>
+        <Link to="/final_medic">
+          <button  className="btn">Continuar <span className="arrow">❯</span></button>
+        </Link>
+
+      </div>
+      <hr />
+
     </div>
   );
 }

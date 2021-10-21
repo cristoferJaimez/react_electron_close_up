@@ -52,6 +52,8 @@ function Search_Products() {
 
   return (
     <div>
+       <h1><sub>Panel Productos</sub></h1> 
+      <br />
       {content_doc.map((val, i, arr) => {
         if (i === 0) {
         } else {
@@ -103,15 +105,19 @@ function Search_Products() {
         localization={{ header: { actions: "Acciones" } }}
       />
 
-      <Link to="/panel__">
-        {" "}
-        <button>Prev... </button>
-      </Link>
+      
 
-      <Link to="/search_labs">
-        {" "}
-        <button>Continuar... </button>
-      </Link>
+      <hr />
+      <div className="right">
+        <Link to="/panel__">
+          <button className="btn"> <span className="arrow_">❰</span> Anterior</button>
+        </Link>
+        <Link to="/search_labs">
+          <button  className="btn">Continuar <span className="arrow">❯</span></button>
+        </Link>
+
+      </div>
+      <hr />
     </div>
   );
 }
