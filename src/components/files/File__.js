@@ -13,8 +13,9 @@ function File_() {
   const [wordSpace, setWordSpace] = useState({
     display: "",
   });
+
   const [view, setView] = useState({
-    display: "none"
+      display: "none"
   })
   const [arr, setArr] = useState({
     name: "",
@@ -32,9 +33,10 @@ function File_() {
     setWordSpace({
       display: "none",
     });
+
     setView({
-      display: ""
-  })
+        display: ""
+    })
     setArr({
       stated: <h3 id="loading">Espere un momento por favor...</h3>,
     });
@@ -62,7 +64,7 @@ function File_() {
                 onClick={list_process}
                 id={i}
                 name={i}
-                value={val.title}
+                value={val.title} 
                 style={{ cursor: "pointer" }}
               />
               <label htmlFor={i}> {val.title} </label>
@@ -131,12 +133,10 @@ function File_() {
   const cubos = <FontAwesomeIcon icon={faFile} size="6x" />;
   const sleep = <FontAwesomeIcon icon={faBed} size="6x" />;
 
-
+  
   return (
     <div className="">
-
-      <h1>Fichero Cruce Medico</h1>
-
+        <h1>Fichero Base Pool</h1>
       <form
         style={{ display: `${wordSpace.display}` }}
         className="form"

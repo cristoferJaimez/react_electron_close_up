@@ -164,6 +164,7 @@ function Final_Medic_Two() {
         style={{ fontSize: "0.7em" }}
         title="MEDICO FINAL (B)"
         options={{
+          headerStyle:{ background: "#ff8d00", color: "#FFF", textAlign: "center "},
           actionsColumnIndex: -1,
           exportButton: true,
           exportAllData: true,

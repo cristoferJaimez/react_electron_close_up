@@ -14,6 +14,11 @@ import Footer from "./components/footer/Footer";
 import Menu from "./components/menu/Menu";
 //ficheros
 import File_ from "./components/files/File_";
+import File__ from "./components/files/File__";
+import File_DB_Colombia from "./components/files/File_Proccess_DB_Colombia";
+import File_DB_Pool from "./components/files/File_Proccess_DB_Pool";
+
+
 import File from "./components/files/File_Proccess";
 
 //moludos Panel
@@ -52,6 +57,12 @@ function App() {
 
         <Route path="/fichero_" component={NavBar}></Route>
         <Route path="/file_" component={File_}></Route>
+        <Route path="/file__" component={File__}></Route>
+        <Route path="/file_db_colombia" component={File_DB_Colombia}></Route>
+        <Route path="/file_db_pool" component={File_DB_Pool}></Route>
+
+        
+
         <Route path="/file_proccess" component={File}></Route>
 
         <Route path="/panel" component={Panel}></Route>

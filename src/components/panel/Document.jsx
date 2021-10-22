@@ -49,18 +49,6 @@ export default function Document() {
     }
   });
 
-  //agrgar ciudades
-  //
- let arr_contenido_ = []
- 
-  arr_contenido_.push(
-    arr_01_ciudades,
-    arr_02_productos,
-    arr_03_laboratorios,
-    arr_04_nombres,
-    arr_05_nombres_concatenado,
-    arr_06_buscar_nombres_01
-  )
 
   columns_title.push(
     {
@@ -69,7 +57,7 @@ export default function Document() {
     },
     {
       title: "CIUDADES",
-      field: "ciudades",
+      field: "name_1",
     },
     {
       title: "PRODUCTOS",
@@ -89,7 +77,7 @@ export default function Document() {
     },
     {
       title: "NOMBRE BASE COLOMBIA",
-      field: "nom_base_colombia",
+      field: "name_1",
     },
     {
       title: "CODIGO CIUDAD BASE COLOMBIA",
@@ -99,17 +87,19 @@ export default function Document() {
       title: "COD/NOMBRE BASE COLOMBIA",
       field: "nom_base_colombia",
     }
-  );
+  );  
+
 
   return (
-    <div style={{ marginRight: "-1900px" }}>
+    <div style={{ marginRight: "-4900px" }}>
       <MaterialTable
         key={(r) => r._id}
         columns={columns_title}
-        data={arr_contenido}
+        data={ arr_contenido}
         style={{ fontSize: "0.7em" }}
         title="TABLA FINAL"
         options={{
+          style : { fontSize: ".1em" } ,
           actionsColumnIndex: -1,
           exportButton: true,
           exportAllData: true,
