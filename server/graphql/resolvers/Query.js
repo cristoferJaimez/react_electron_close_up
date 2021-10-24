@@ -5,6 +5,11 @@ import zonaModel from "../../models/tbl_panel_zona_influencia.model";
 import labsModel from "../../models/tbl_panel_maestro_labs.model";
 import productModel from "../../models/tbl_panel_maestro_productos.model";
 import apellidoModel from "../../models/tbl_panel_maestro_apellidos.model";
+import ficheroColombiaModel from "../../models/tbl_fichero_colombia";
+import ficheroPoolModel from "../../models/tbl_fichero_pool";
+
+
+
 
 
 const Query = {
@@ -35,6 +40,16 @@ const Query = {
   apellido: async () => {
     return await apellidoModel.find();
   },
+
+  ficheroColombia: async () => {
+    return await ficheroColombiaModel.find();
+  },
+
+  pool: async () => {
+    return await ficheroPoolModel.find();
+  }
+
+
 };
 
 export default Query;

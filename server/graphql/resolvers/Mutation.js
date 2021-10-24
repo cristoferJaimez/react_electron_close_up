@@ -4,15 +4,29 @@ import colombiaModel from "../../models/tbl_panel_colombia.model";
 import labsModel from "../../models/tbl_panel_maestro_labs.model";
 import productModel from "../../models/tbl_panel_maestro_productos.model";
 import apellidoModel from "../../models/tbl_panel_maestro_apellidos.model";
+import ficheroColombiaModel from "../../models/tbl_fichero_colombia";
+import ficheroPoolModel from "../../models/tbl_fichero_pool";
 
 
-
-const Mutation = {
+const Mutation = { 
 
   //CREAR DATO DB COLOMBIA
   async createDBcolombia(_, { input }) {
     const newdbColombia = new colombiaModel(input);
     return await newdbColombia.save();
+  },
+
+  //CREAR DATO DB COLOMBIA FCHERO
+  async createDBcolombiaFichero(_, { input }) {
+    const newdbColombiaFichero = new ficheroColombiaModel(input);
+    return await newdbColombiaFichero.save(); 
+  },
+
+
+  //CREAR DATO DB COLOMBIA FCHERO
+  async createDBPoolFichero(_, { input }) {
+    const newdbPoolFichero = new ficheroPoolModel(input);
+    return await newdbPoolFichero.save(); 
   },
 
 
