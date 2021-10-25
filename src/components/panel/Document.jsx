@@ -21,6 +21,7 @@ export default function Document() {
   const arr_05_nombres_concatenado = JSON.parse(
     localStorage.getItem("array_con_cod_name_ok")
   );
+  const arr_nombres_06 = JSON.parse(localStorage.getItem("06array_name_concatenado_ok"));
   const arr_06_buscar_nombres_01 = JSON.parse(
     localStorage.getItem("array_con_cod_name_ok")
   );
@@ -45,9 +46,55 @@ export default function Document() {
           val
         )
       
-    } else {
+    } else { 
     }
   });
+
+
+  //ingresar arrays
+  arr_contenido.map((val,i,arr) =>{
+
+      //ciduades
+      arr_01_ciudades.map((val2, i2,arr2) =>{
+          if(i === i2){
+              arr_contenido[i]['ciudades_']  =  val2.zonaInfluencia
+              arr_contenido[i]['codigo_'] = val2.codigo
+              arr_contenido[i]['cod_ciudad_'] = val2.codigo +"/"+ val2.zonaInfluencia
+
+          }
+      })
+
+      //productos
+      arr_02_productos.map((val3,i3,arr3) =>{
+          if( i === i3){
+            arr_contenido[i]['productos_'] = val3.producto.substr(3)
+            arr_contenido[i]['des_productos_'] = val3.observacion
+          }
+      })
+
+
+     //laboratorios
+     arr_03_laboratorios.map((val4,i4,arr4) =>{
+        if(i === i4){
+            arr_contenido[i]['lab_'] = val4.lab_1.substr(2).replace('/', "")
+            arr_contenido[i]['obs_lab_'] = val4.observacion
+
+        }
+     }) 
+
+
+     //nombres desde base colombia
+     arr_nombres_06.map((val6, i6,arr6)=>{
+        if(i === i6){
+            arr_contenido[i]['cod_nom_bas_col'] = val6.name_1
+            arr_contenido[i]['cod_nom_bas_col_cod'] = val6.codigo_unico.substr(-20,3)
+            arr_contenido[i]['nom_bas_col'] = val6.nom_medico
+            arr_contenido[i]['obs_bas_col'] = val6.observacion
+            arr_contenido[i]['recha_bas_col'] = val6.rechazado
+        }
+     })
+
+  })
 
 
   columns_title.push(
@@ -56,42 +103,66 @@ export default function Document() {
       field: "<<>>",
     },
     {
+      title: "CODIGO",
+      field: "codigo_",
+    },
+    {
       title: "CIUDADES",
-      field: "name_1",
+      field: "ciudades_",
+    },
+    {
+      title: "COD+CIUDADES",
+      field: "cod_ciudad_",
     },
     {
       title: "PRODUCTOS",
-      field: "productos",
+      field: "productos_",
+    },
+    {
+      title: "DES. PRODUCTOS",
+      field: "des_productos_",
     },
     {
       title: "LABORATORIOS",
-      field: "laboratorios",
+      field: "lab_",
+    },
+    {
+      title: "OBS. LABORATORIOS",
+      field: "obs_lab_",
     },
     {
       title: "NOMBRES",
-      field: "nombres",
+      field: "nom_bas_col",
     },
     {
       title: "COD/NOMBRE",
-      field: "cod_nom",
+      field: "cod_nom_bas_col",
     },
     {
       title: "NOMBRE BASE COLOMBIA",
-      field: "name_1",
+      field: "nom_bas_col",
     },
     {
       title: "CODIGO CIUDAD BASE COLOMBIA",
-      field: "nom_base_colombia",
+      field: "cod_nom_bas_col_cod",
     },
     {
       title: "COD/NOMBRE BASE COLOMBIA",
-      field: "nom_base_colombia",
+      field: "cod_nom_bas_col",
+    },
+    {
+      title: "OBSERVACION",
+      field: "obs_bas_col",
+    },
+    {
+      title: "RECHAZADO",
+      field: "recha_bas_col",
     }
   );  
 
 
   return (
-    <div style={{ marginRight: "-4900px" }}>
+    <div style={{ marginRight: "-6000px" }}>
       <MaterialTable
         key={(r) => r._id}
         columns={columns_title}
@@ -103,6 +174,7 @@ export default function Document() {
           actionsColumnIndex: -1,
           exportButton: true,
           exportAllData: true,
+          headerStyle :{ background : "#FF9633", color: "#FFF" }
         }}
         localization={{ header: { actions: "Acciones" } }}
       />
