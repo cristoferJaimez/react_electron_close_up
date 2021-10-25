@@ -98,65 +98,161 @@ export default function Document() {
 
 
   columns_title.push(
-    {
-      title: "<<>>",
-      field: "<<>>",
-    },
+ 
     {
       title: "CODIGO",
       field: "codigo_",
+      cellStyle: {
+        backgroundColor: '#FFC300',
+        with: '1px',
+        color: '#FFF'},
+      headerStyle: {
+        backgroundColor: '#FFC300',
+      }
     },
     {
       title: "CIUDADES",
       field: "ciudades_",
+      cellStyle: {
+        backgroundColor: '#FFC300',
+        with: '1px',
+        color: '#FFF'},
+      headerStyle: {
+        backgroundColor: '#FFC300',
+      }
     },
     {
       title: "COD+CIUDADES",
       field: "cod_ciudad_",
+      cellStyle: {
+        backgroundColor: '#FFC300',
+        with: '1px',
+        color: '#FFF'},
+      headerStyle: {
+        backgroundColor: '#FFC300',
+      }
     },
     {
       title: "PRODUCTOS",
       field: "productos_",
+      cellStyle: {
+        backgroundColor: '#E13112',
+        with: '1px',
+        color: '#FFF'},
+        headerStyle: {
+          backgroundColor: '#E13112',
+        }
     },
     {
       title: "DES. PRODUCTOS",
       field: "des_productos_",
+      cellStyle: {
+        backgroundColor: '#E13112',
+        with: '1px',
+        color: '#FFF'},
+        headerStyle: {
+          backgroundColor: '#E13112',
+        }
     },
     {
       title: "LABORATORIOS",
       field: "lab_",
+      cellStyle: {
+        backgroundColor: '#1295E1 ',
+        with: '1px',
+        color: '#FFF'},
+        headerStyle: {
+          backgroundColor: '#1295E1 ',
+        }
     },
     {
       title: "OBS. LABORATORIOS",
       field: "obs_lab_",
+      cellStyle: {
+        backgroundColor: '#1295E1',
+        with: '1px',
+        color: '#FFF'},
+        headerStyle: {
+          backgroundColor: '#1295E1',
+        }
     },
     {
       title: "NOMBRES",
       field: "nom_bas_col",
+      cellStyle: {
+        backgroundColor: '#2FBD09 ',
+        with: '1px',
+        color: '#FFF'},
+        headerStyle: {
+          backgroundColor: '#2FBD09 ',
+        }
     },
     {
       title: "COD/NOMBRE",
       field: "cod_nom_bas_col",
+      cellStyle: {
+        backgroundColor: '#2FBD09 ',
+        with: '1px',
+        color: '#FFF'},
+        headerStyle: {
+          backgroundColor: '#2FBD09 ',
+        }
     },
+
     {
       title: "NOMBRE BASE COLOMBIA",
       field: "nom_bas_col",
+      cellStyle: {
+        backgroundColor: '#2FBD09 ',
+        with: '1px',
+        color: '#FFF'},
+        headerStyle: {
+          backgroundColor: '#2FBD09 ',
+        }
     },
     {
       title: "CODIGO CIUDAD BASE COLOMBIA",
       field: "cod_nom_bas_col_cod",
+      cellStyle: {
+        backgroundColor: '#2FBD09 ',
+        with: '1px',
+        color: '#FFF'},
+        headerStyle: {
+          backgroundColor: '#2FBD09 ',
+        }
     },
     {
       title: "COD/NOMBRE BASE COLOMBIA",
       field: "cod_nom_bas_col",
+      cellStyle: {
+        backgroundColor: '#2FBD09 ',
+        with: '1px',
+        color: '#FFF'},
+        headerStyle: {
+          backgroundColor: '#2FBD09 ',
+        }
     },
     {
       title: "OBSERVACION",
       field: "obs_bas_col",
+      cellStyle: {
+        backgroundColor: '#2FBD09 ',
+        with: '1px',
+        color: '#FFF'},
+        headerStyle: {
+          backgroundColor: '#2FBD09 ',
+        }
     },
     {
       title: "RECHAZADO",
       field: "recha_bas_col",
+      cellStyle: {
+        backgroundColor: '#2FBD09 ',
+        with: '1px',
+        color: '#FFF'},
+        headerStyle: {
+          backgroundColor: '#2FBD09 ',
+        }
     }
   );  
 
@@ -173,7 +269,7 @@ export default function Document() {
           actionsColumnIndex: -1,
           exportButton: true,
           exportAllData: true,
-          headerStyle :{ background : "#FF9633", color: "#FFF" }
+          headerStyle :{ background : "#000000", color: "#FFF" }
 
         }}
         localization={{ header: { actions: "Acciones" } }}

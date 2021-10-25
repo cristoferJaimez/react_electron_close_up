@@ -156,7 +156,7 @@ function Final_Medic_Two() {
 
         res = false;
       })}
-
+ 
       <MaterialTable
         key={(r) => r._id}
         columns={columns}

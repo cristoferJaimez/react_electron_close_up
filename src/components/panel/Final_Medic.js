@@ -96,7 +96,7 @@ function Final_Medic() {
               if (valor_ != null) {
                 let valor_if__ = valor_.split(" ").join("");
   
-                if (valor_if_.toUpperCase().includes(valor_if__.toUpperCase())) {
+                if (valor_if__.toUpperCase().includes(valor_if_.toUpperCase())) {
                 return  codigo_medico = e.Codigo_de_Ciudad_y_Codigo_de_Medico_Audi_CC,
                   nombre_medico = e.Nombre_del_Medico_CO,
                   rechazado_medico = "NO",
