@@ -32,12 +32,17 @@ function DataBase() {
                 </ListItem>
               </Link>
              
-              <ListItem>
-                <ListItemAvatar>
-                  <Avatar>{db}</Avatar>
-                </ListItemAvatar>
-                <ListItemText primary="Maestro Labs" secondary="Panel" />
-              </ListItem>
+              <Link className="link_data" to="/dbMasterLabs">
+                <ListItem>
+                  <ListItemAvatar>
+                    <Avatar>{db}</Avatar>
+                  </ListItemAvatar>
+                  <ListItemText primary="Maestro" secondary="Labs" />
+                </ListItem>
+              </Link>
+             
+            
+
               <Link className="link_data" to="/dbZonas">
                 <ListItem>
                   <ListItemAvatar>
@@ -46,13 +51,17 @@ function DataBase() {
                   <ListItemText primary="Zonas de Influencia" secondary="Panel" />
                 </ListItem>
               </Link>
+
+              <Link className="link_data" to="/dbmasterape">
+                <ListItem>
+                  <ListItemAvatar>
+                    <Avatar>{db}</Avatar>
+                  </ListItemAvatar>
+                  <ListItemText primary="Apellidos" secondary="Panel" />
+                </ListItem>
+              </Link>
              
-              <ListItem>
-                <ListItemAvatar>
-                  <Avatar>{db}</Avatar>
-                </ListItemAvatar>
-                <ListItemText primary="Apellidos" secondary="Panel" />
-              </ListItem>
+              
             </List>
         </div>
         <div className="box03">

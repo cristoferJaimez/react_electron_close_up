@@ -86,7 +86,7 @@ export default function Document() {
      //nombres desde base colombia
      arr_nombres_06.map((val6, i6,arr6)=>{
         if(i === i6){
-            arr_contenido[i]['cod_nom_bas_col'] = val6.name_1
+            arr_contenido[i]['cod_nom_bas_col'] = val6.codigo_unico.substr(-20,3)+val6.nom_medico
             arr_contenido[i]['cod_nom_bas_col_cod'] = val6.codigo_unico.substr(-20,3)
             arr_contenido[i]['nom_bas_col'] = val6.nom_medico
             arr_contenido[i]['obs_bas_col'] = val6.observacion
@@ -162,7 +162,7 @@ export default function Document() {
 
 
   return (
-    <div style={{ marginRight: "-6000px" }}>
+    <div style={{  marginRight: "-6500px" }}>
       <MaterialTable
         key={(r) => r._id}
         columns={columns_title}
@@ -170,11 +170,11 @@ export default function Document() {
         style={{ fontSize: "0.7em" }}
         title="TABLA FINAL"
         options={{
-          style : { fontSize: ".1em" } ,
           actionsColumnIndex: -1,
           exportButton: true,
           exportAllData: true,
           headerStyle :{ background : "#FF9633", color: "#FFF" }
+
         }}
         localization={{ header: { actions: "Acciones" } }}
       />

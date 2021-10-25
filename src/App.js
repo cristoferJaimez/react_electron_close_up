@@ -39,6 +39,11 @@ import Users from "./components/users/Users";
 import DataBase from "./components/dataBase/DataBase";
 import DataBaseColombia from "./components/dataBase/dataBase/DataBaseColombia";
 import DataBaseZona from "./components/dataBase/dataBase/DataBaseZona";
+import DataMasterLabs from "./components/dataBase/dataBase/DataBaseMaestroLabs";
+import DataMasterApellidos from "./components/dataBase/dataBase/DataBaseApellidos";
+import DataApellidos from "./components/dataBase/dataBase/DataBaseApellidos";
+
+
 
 // procewso de panel modulo 1
 
@@ -53,6 +58,8 @@ function App() {
         <Route path="/register" component={Register} exact></Route>
 
         <Route path="/dbcolombia" component={DataBaseColombia} exact></Route>
+        <Route path="/dbmasterlabs" component={DataMasterLabs} exact></Route>
+        <Route path="/dbmasterape" component={DataApellidos} exact></Route>
         <Route path="/dbzonas" component={DataBaseZona} exact></Route>
 
         <Route path="/fichero_" component={NavBar}></Route>
