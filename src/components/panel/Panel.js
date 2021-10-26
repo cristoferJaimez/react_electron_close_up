@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCubes, faBed } from "@fortawesome/free-solid-svg-icons";
 //import funccion de trabajo
 import Read from "../../js/panel/panel.fuc";
+import axios from "axios";
 
 function Panel() {
   //variable
@@ -36,6 +37,11 @@ function Panel() {
     // Guardo el objeto como un string
     await Read(e.target.files[0]);
   
+    const path = e.target.files[0].path
+
+    //enviar direccion de archivo a server
+    //axios.post('api/doc/file/', path).then( res => console.log(res)).catch(err => console.log(err))
+
     setWordSpace({
       display: "none",
     });

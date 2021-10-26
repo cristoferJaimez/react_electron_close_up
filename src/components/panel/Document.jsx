@@ -4,6 +4,9 @@ import MaterialTable from "material-table";
 export default function Document() {
   //titulo de tabla analizada
 
+  localStorage.removeItem('array_names_ok')
+  localStorage.removeItem('array_con_cod_name_ok')
+ ///////////////////////////////////
   const arr_00_tabla_analizada = JSON.parse(
     localStorage.getItem("row_title_file")
   );
@@ -17,10 +20,7 @@ export default function Document() {
     localStorage.getItem("array_products_ok")
   );
   const arr_03_laboratorios = JSON.parse(localStorage.getItem("array_labs_ok"));
-  const arr_04_nombres = JSON.parse(localStorage.getItem("array_names_ok"));
-  const arr_05_nombres_concatenado = JSON.parse(
-    localStorage.getItem("array_con_cod_name_ok")
-  );
+
   const arr_nombres_06 = JSON.parse(localStorage.getItem("06array_name_concatenado_ok"));
   const arr_06_buscar_nombres_01 = JSON.parse(
     localStorage.getItem("array_con_cod_name_ok")
@@ -30,13 +30,7 @@ export default function Document() {
   );
   let arr_contenido = [];
   let columns_title = [];
-  arr_00_tabla_analizada.map((valTA, iAT, arrTA) => {
-    let fila = iAT
-    columns_title.push({
-      title: valTA.title.toUpperCase(),
-      field: fila
-    });
-  });
+ 
 
 
   arr_00_tabla_analizada_contenido.map((val, i, arr) => {
@@ -258,7 +252,7 @@ export default function Document() {
 
 
   return (
-    <div style={{  marginRight: "-6500px" }}>
+    <div style={{  marginRight: "-800px" }}>
       <MaterialTable
         key={(r) => r._id}
         columns={columns_title}
