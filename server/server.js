@@ -1,6 +1,8 @@
 import { GraphQLServer } from 'graphql-yoga'
+import './express'
 import resolvers from './graphql/resolvers'
 import path from 'path'
+
 
 
 export const server =  new GraphQLServer({

@@ -36,11 +36,6 @@ function Panel() {
   const handleChange = async (e) => {
     // Guardo el objeto como un string
     await Read(e.target.files[0]);
-  
-    const path = e.target.files[0].path
-
-    //enviar direccion de archivo a server
-    //axios.post('api/doc/file/', path).then( res => console.log(res)).catch(err => console.log(err))
 
     setWordSpace({
       display: "none",

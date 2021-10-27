@@ -1,8 +1,11 @@
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, BrowserView } = require("electron");
+const { app, BrowserWindow } = require("electron");
 const path = require("path");
 
+
+
 function createWindow() {
+ 
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 800,
