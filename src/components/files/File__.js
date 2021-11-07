@@ -178,7 +178,7 @@ function File_() {
 
           <ul>{order.newArr}</ul>
           <Link
-            to="/file_proccess"
+            to="/file_db_colombia"
             style={{
               textDecoration: "none",
               border: "solid 1px #000",

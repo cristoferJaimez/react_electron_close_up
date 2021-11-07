@@ -17,10 +17,7 @@ import File_ from "./components/files/File_";
 import File__ from "./components/files/File__";
 import File_DB_Colombia from "./components/files/File_Proccess_DB_Colombia";
 import File_DB_Pool from "./components/files/File_Proccess_DB_Pool";
-
-
 import File from "./components/files/File_Proccess";
-
 //moludos Panel
 import Panel from "./components/panel/Panel";
 import Task from "./components/panel/Task";
