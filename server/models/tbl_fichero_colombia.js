@@ -20,7 +20,7 @@ const tbl_fichero_colombia = Schema(
     Localidad_Colonia1: String,
     Cdg_postal1: String,
     Cdg_Zona1: String,
-    Espec:String,
+    Espec_1:String,
     cdg_espec1: String,
     cdg_espec2: String,
     FAlta: String,
