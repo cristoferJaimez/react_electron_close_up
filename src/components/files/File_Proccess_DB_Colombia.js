@@ -7,26 +7,28 @@ import { useQuery } from "@apollo/react-hooks";
 
 export default function File_Proccess_DB_Colombia() {
   const columns = [
-
-
     {
       title: "Nombre de Archivo",
       field: "name_1",
     },
-
     {
       title: "Nombre Encontrado",
       field: "name_2",
     },
 
     {
-      title: "Espec_1",
+      title: "Cod_Labo",
       field: "espec_1",
     },
 
     {
-      title: "cdg_espec1",
+      title: "Laboratorio",
       field: "cdg_espec1",
+    },
+
+    {
+      title: "nro_medico",
+      field: "nro_medico",
     },
 
     {
@@ -39,14 +41,15 @@ export default function File_Proccess_DB_Colombia() {
 
   const GET_DATA_COLOMBIA = gql`
     {
-      ficheroColombia{
+      pool{
+    Nombre
+    Orden
+    Cod_Labo
+    Laboratorio
     nro_medico
-    Id_Unico
-    Espec_1
-    cdg_espec1
-    Apeynom
+    
   }
-    }
+                 }
   `;
 
   const { loading, error, data } = useQuery(GET_DATA_COLOMBIA);
@@ -78,22 +81,25 @@ export default function File_Proccess_DB_Colombia() {
           let Apeynom = "";
           let observacion = "";
 
+          let nom = val[arr_list[0].id];
 
           data.ficheroColombia.map((va, it, ar) => {
+           let if_nom =  nom.split(" ").sort().join("");
            
-            if (val[arr_list[0].id].includes(va.Apeynom)){
 
-              nomArchivo = val[arr_list[0].id];
-              Apeynom = va.Apeynom;
-              Espec_1 = va.Espec_1;
-              cdg_espec1 = va.cdg_espec1;
-              Id_Unico = va.Id_Unico;
-              nro_medico = va.nro_medico;
+            if (if_nom.includes(va.Nombre.split(" ").sort().join(""))){
+
+              nomArchivo = val[arr_list[0]];
+              Apeynom = va.Nombre;
+              Espec_1 = va.Cod_Labo;
+              cdg_espec1 = va.Laboratorio;
+              Id_Unico = va.nro_medico;
 
               observacion = "ENCONTRADO";
 
             }else{
               nomArchivo = val[arr_list[0].id];
+              console.log(nom.split(" ").sort().join(""));
               observacion = "N/A"
             }
             
@@ -107,21 +113,21 @@ export default function File_Proccess_DB_Colombia() {
 
           array_result_file.push({
             name_1 : nomArchivo,
+            name_2 : Apeynom,
             estado : observacion,
+            Espec_1 : Espec_1,
+            cdg_espec1  :cdg_espec1,
+            nro_medico :  Id_Unico,
           });
         }
       })}
-
-
-
-
 
       <MaterialTable
         key={(r) => r._id}
         columns={columns}
         data={array_result_file}
         style={{ fontSize: "0.7em" }}
-        title="CRUCE BASE COLOMBIA"
+        title="CRUCE POOL"
         options={{
           actionsColumnIndex: -1,
           exportButton: true,

@@ -3,7 +3,7 @@ import { Schema, model } from "mongoose";
 const tbl_fichero_pool = Schema(
   {
    Orden: String,
-   Cod: String,
+   Cod_Labo: String,
    Laboratorio: String,
    Carga: String,
    F: String,

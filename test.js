@@ -20,4 +20,8 @@ const arr1 = [
         
       })
 
-  console.log(arr1);    
+  console.log(arr1);  
+  
+  let monbre = "Cristofer jaimez";
+  let res = monbre.split(" ").sort().join("");
+  console.log(res.sort());

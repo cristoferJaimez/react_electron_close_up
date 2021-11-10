@@ -37,7 +37,7 @@ type Mutation {
 type Pool {
   _id: ID!
   Orden: String
-   Cod: String
+   Cod_Labo: String
    Laboratorio: String
    Carga: String
    F: String
@@ -378,7 +378,7 @@ input FicheroColombiaInput {
 
 input PoolInput {
   Orden: String
-   Cod: String
+   Cod_Labo: String
    Laboratorio: String
    Carga: String
    F: String
