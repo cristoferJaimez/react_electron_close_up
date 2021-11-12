@@ -17,17 +17,17 @@ export default function File_Proccess_DB_Pool() {
     },
 
     {
-      title: "Espec_1",
+      title: "Cod_Labo",
       field: "espec_1",
     },
 
     {
-      title: "cdg_espec1",
+      title: "Laboratorio",
       field: "cdg_espec1",
     },
 
     {
-      title: "ESTADO",
+      title: "nro_medico",
       field: "estado",
     },
   ];
@@ -36,18 +36,19 @@ export default function File_Proccess_DB_Pool() {
 
   const GET_DATA_COLOMBIA = gql`
     {
-      ficheroColombia {
-                      nro_medico
-                      Id_Unico
-                      Espec_1
-                      cdg_espec1
-                      Apeynom
-                    }
+      pool{
+    Nombre
+    Orden
+    Cod_Labo
+    Laboratorio
+    nro_medico
+    
+  }
                  }
   `;
 
   const { loading, error, data } = useQuery(GET_DATA_COLOMBIA);
-  if (loading) return <p>Cargando BASE COLOMBIA.</p>;
+  if (loading) return <p>Cargando BASE POOL.</p>;
   if (error) return `${error} `;
   //console.log(data);
 
@@ -77,34 +78,32 @@ export default function File_Proccess_DB_Pool() {
 
           let nom = val[arr_list[0].id];
 
-          data.ficheroColombia.map((va, it, ar) => {
-           let if_nom =  nom.split(" ").sort().join("");
+          data.pool.map((va, it, ar) => {
+            if(nom != null && va.Nombre != null){
+              let if_nom =  nom.split(" ").sort().join("");
            
 
-            if (if_nom.includes(va.Apeynom.split(" ").sort().join(""))){
-
-              nomArchivo = val[arr_list[0]];
-              Apeynom = va.Apeynom;
-              Espec_1 = va.Espec_1;
-              cdg_espec1 = va.cdg_espec1;
-              Id_Unico = va.Id_Unico;
-              nro_medico = va.nro_medico;
-
-              observacion = "ENCONTRADO";
-
-            }else{
-              nomArchivo = val[arr_list[0].id];
-              console.log(nom.split(" ").sort().join(""));
-              observacion = "N/A"
+              if (if_nom.includes(va.Nombre.split(" ").sort().join(""))){
+  
+                nomArchivo = val[arr_list[0]];
+                Apeynom = va.Nombre;
+                Espec_1 = va.Orden;
+                cdg_espec1 = va.Cod_Labo;
+                Id_Unico = va.Laboratorio;
+                nro_medico = va.nro_medico;
+  
+                observacion = "ENCONTRADO";
+  
+              }else{
+                nomArchivo = val[arr_list[0].id];
+                console.log(nom.split(" ").sort().join(""));
+                observacion = "N/A"
+              }
+              
             }
-            
           });
 
-          // espacio para guardar zona de influencia no encontrada
-          if (!observacion) {
-            observacion = " NO ENCONTRADO! ";
-            // alert( `zona de influencia no localizada  ${ciudad}` )
-          }
+         
 
           array_result_file.push({
             name_1 : nomArchivo,
@@ -131,10 +130,7 @@ export default function File_Proccess_DB_Pool() {
         localization={{ header: { actions: "Acciones" } }}
       />
       <br />
-      <Link to="/fichero_">
-        {" "}
-        <button> Seguir Comaprar Pool </button>
-      </Link>
+     
     </div>
   );
 }

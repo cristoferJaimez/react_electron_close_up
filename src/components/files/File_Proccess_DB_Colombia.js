@@ -17,12 +17,12 @@ export default function File_Proccess_DB_Colombia() {
     },
 
     {
-      title: "Cod_Labo",
+      title: "Espec_1",
       field: "espec_1",
     },
 
     {
-      title: "Laboratorio",
+      title: "cdg_espec1",
       field: "cdg_espec1",
     },
 
@@ -41,13 +41,12 @@ export default function File_Proccess_DB_Colombia() {
 
   const GET_DATA_COLOMBIA = gql`
     {
-      pool{
-    Nombre
-    Orden
-    Cod_Labo
-    Laboratorio
+      ficheroColombia{
     nro_medico
-    
+    Id_Unico
+    Espec_1
+    cdg_espec1
+    Apeynom
   }
                  }
   `;
@@ -84,16 +83,19 @@ export default function File_Proccess_DB_Colombia() {
           let nom = val[arr_list[0].id];
 
           data.ficheroColombia.map((va, it, ar) => {
-           let if_nom =  nom.split(" ").sort().join("");
-           
 
-            if (if_nom.includes(va.Nombre.split(" ").sort().join(""))){
+           if(nom != null && va.Apeynom != null){
+
+              
+
+            let if_nom =  nom.split(" ").sort().join("");
+            if (if_nom.includes(va.Apeynom.split(" ").sort().join(""))){
 
               nomArchivo = val[arr_list[0]];
-              Apeynom = va.Nombre;
-              Espec_1 = va.Cod_Labo;
-              cdg_espec1 = va.Laboratorio;
-              Id_Unico = va.nro_medico;
+              Apeynom = va.Apeynom;
+              Espec_1 = va.Espec_1;
+              cdg_espec1 = va.cdg_espec1;
+              Id_Unico = va.Id_Unico;
 
               observacion = "ENCONTRADO";
 
@@ -102,15 +104,12 @@ export default function File_Proccess_DB_Colombia() {
               console.log(nom.split(" ").sort().join(""));
               observacion = "N/A"
             }
+           }
             
           });
 
           // espacio para guardar zona de influencia no encontrada
-          if (!observacion) {
-            observacion = " NO ENCONTRADO! ";
-            // alert( `zona de influencia no localizada  ${ciudad}` )
-          }
-
+        
           array_result_file.push({
             name_1 : nomArchivo,
             name_2 : Apeynom,
@@ -127,7 +126,7 @@ export default function File_Proccess_DB_Colombia() {
         columns={columns}
         data={array_result_file}
         style={{ fontSize: "0.7em" }}
-        title="CRUCE POOL"
+        title="CRUCE COLOMBIA"
         options={{
           actionsColumnIndex: -1,
           exportButton: true,
@@ -136,7 +135,7 @@ export default function File_Proccess_DB_Colombia() {
         localization={{ header: { actions: "Acciones" } }}
       />
       <br />
-      <Link to="/fichero_">
+      <Link to="/file_db_pool">
         {" "}
         <button> Seguir Comaprar Pool </button>
       </Link>
