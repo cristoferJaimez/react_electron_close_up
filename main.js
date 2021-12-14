@@ -24,6 +24,13 @@ function createWindow() {
     },
   });
 
+
+  /*mainWindow.loadURL(url.format({
+    pathname: path.join(__dirname, './public/index.html'),
+    protocol: 'file:',
+    slashes: true
+   }))
+*/
   // and load the index.html of the app.
   mainWindow.loadURL("http://localhost:3000");
 

@@ -58,13 +58,17 @@
     "xlsx": "^0.17.2",
     "xml2json": "^0.12.0"
   },
+
+  "homepage": "./",
   "main": "main.js",
   "scripts": {
     "start": "  concurrently \"BROWSER=none\"  \" react-scripts start \" \" yarn server \"",
     "build": "babel server -d dist --source-maps",
     "eject": "react-scripts eject",
     "server": " nodemon ./server/index.js   --exec babel-node",
-    "electron-dev": "concurrently \"yarn start\" \"wait-on http://localhost:3000 && electron .\""
+    "electron-dev": "concurrently \"yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "package": "electron-packager . /close_up_electron_react/build close_up_electron_react --all --out ~/  --electron-version 1.7.10",
+    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Electron Tutorial App\""
   },
   "eslintConfig": {
     "extends": [
@@ -92,6 +96,18 @@
     "@babel/core": "^7.15.5",
     "@babel/node": "^7.15.4",
     "@babel/preset-env": "^7.15.6",
+    "electron-packager": "^15.4.0",
     "nodemon": "^2.0.12"
+  },
+  "build": {
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "publish": {
+      "provider": "github",
+      "repo": "electron-cra-example",
+      "owner": "johndyer24"
+    }
   }
 }
