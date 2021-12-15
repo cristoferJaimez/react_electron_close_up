@@ -18,19 +18,33 @@ export default function File_Proccess_DB_Pool() {
 
     {
       title: "Cod_Labo",
-      field: "espec_1",
+      field: "cod_Labo",
     },
 
     {
       title: "Laboratorio",
-      field: "cdg_espec1",
+      field: "laboratorio",
     },
 
     {
       title: "nro_medico",
-      field: "estado",
+      field: "nro_medico",
+    },
+    {
+      title: "Direccción",
+      field: "direccion",
+    },
+    
+    {
+      title: "Matricula",
+      field: "matricula",
+    },
+    {
+      title: "Especialidad",
+      field: "especialidad",
     },
   ];
+
 
 
 
@@ -42,7 +56,10 @@ export default function File_Proccess_DB_Pool() {
     Cod_Labo
     Laboratorio
     nro_medico
-    
+    Direccion
+    Matricula
+    Esp1
+    Esp2  
   }
                  }
   `;
@@ -63,74 +80,93 @@ export default function File_Proccess_DB_Pool() {
 
   const array_result_file = []
 
+  
+  //console.log("cruzando datos!!");
+
+  const arry_arreglo_colombia = [];
+  const arry_arreglo_file = [];
+
+
+  async function organizarDataColombia() {
+
+
+    await data.pool.map((val, i, arr) => {
+      arry_arreglo_colombia.push({
+        name_1: val.Nombre.split(" ").sort().join("").replace("#", "Ñ")
+      })
+    })
+
+
+
+    return <p>Preparando Datos...</p>
+
+  }
+
+
+  async function datosFile() {
+    await arr_contenido.map((val, i, arr) => {
+
+      let nombre_ = val[arr_list[0].id];
+
+      arry_arreglo_file.push({
+        name_2: nombre_.split(" ").sort().join("").replace("#", "Ñ")
+      })
+
+    })
+  }
+
+
+  organizarDataColombia();
+  datosFile()
+
+
+  //variable para tabla
+
+  for (let index = 0; index < arry_arreglo_file.length; index++) {
+    for (let i = 0; i < arry_arreglo_colombia.length; i++) {
+      //console.log(arry_arreglo_file[index].name_2 + " " + index); 
+      if (arry_arreglo_file[index].name_2 == arry_arreglo_colombia[i].name_1) {
+
+        array_result_file.push({
+          name_1 : arr_contenido[index][arr_list[0].id] ,
+          name_2: data.pool[i].Nombre,
+          cod_Labo: data.pool[i].Cod_Labo,
+          laboratorio: data.pool[i].Laboratorio,
+          orden: data.pool[i].Orden,
+          direccion: data.pool[i].Direccion,
+          Matricula: data.pool[i].Matricula,
+          espacialidad: data.pool[i].nro_medico.Esp1,
+
+        })
+
+      } else {
+
+      }
+    }
+
+  }
+
+  //variables para tabla
+  //console.log(array_result_file[100]);
+
   return (
     <div>
- {arr_contenido.map((val, i, arr) => {
-        if (i === 0) {
-        } else {
-          let nomArchivo = "";
-          let nro_medico = "";
-          let Id_Unico = "";
-          let Espec_1 = "";
-          let cdg_espec1 = "";
-          let Apeynom = "";
-          let observacion = "";
-
-          let nom = val[arr_list[0].id];
-
-          data.pool.map((va, it, ar) => {
-            if(nom != null && va.Nombre != null){
-              let if_nom =  nom.split(" ").sort().join("");
-           
-
-              if (if_nom.includes(va.Nombre.split(" ").sort().join(""))){
-  
-                nomArchivo = val[arr_list[0]];
-                Apeynom = va.Nombre;
-                Espec_1 = va.Orden;
-                cdg_espec1 = va.Cod_Labo;
-                Id_Unico = va.Laboratorio;
-                nro_medico = va.nro_medico;
-  
-                observacion = "ENCONTRADO";
-  
-              }else{
-                nomArchivo = val[arr_list[0].id];
-                console.log(nom.split(" ").sort().join(""));
-                observacion = "N/A"
-              }
-              
-            }
-          });
-
-         
-
-          array_result_file.push({
-            name_1 : nomArchivo,
-            name_2 : Apeynom,
-            estado : observacion,
-            Espec_1 : Espec_1,
-            cdg_espec1  :cdg_espec1,
-
-          });
-        }
-      })}
-
-      <MaterialTable
+ <MaterialTable
         key={(r) => r._id}
         columns={columns}
         data={array_result_file}
         style={{ fontSize: "0.7em" }}
-        title="CRUCE BASE COLOMBIA"
+        title="BUSQUEDA POOL"
         options={{
+          headerStyle: { background: "#6CD83D", color: "#FFF", textAlign: "center " },
           actionsColumnIndex: -1,
           exportButton: true,
           exportAllData: true,
         }}
         localization={{ header: { actions: "Acciones" } }}
       />
-      <br />
-     
     </div>
+     
+  
   );
 }

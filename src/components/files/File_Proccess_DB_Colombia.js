@@ -13,12 +13,33 @@ export default function File_Proccess_DB_Colombia() {
     },
     {
       title: "Nombre Encontrado",
-      field: "name_2",
+      field: "apeNom",
+    },
+    {
+      title: "Localidad",
+      field: "localidad",
+    },
+    {
+      title: "Barrio",
+      field: "barrio",
+    },
+    {
+      title: "Direccion",
+      field: "direccion",
+    },
+
+    {
+      title: "Matricula",
+      field: "matricula",
+    },
+    {
+      title: "Fecha Alta",
+      field: "fechaAlta",
     },
 
     {
       title: "Espec_1",
-      field: "espec_1",
+      field: "Espec_1",
     },
 
     {
@@ -47,6 +68,15 @@ export default function File_Proccess_DB_Colombia() {
     Espec_1
     cdg_espec1
     Apeynom
+    Cdg_ciudad
+    Activo
+    Direccion1
+    Barrio_Municipio1
+    Localidad_Colonia1
+    Matricula1
+    Fecha_Alta
+    PxTamTGT
+    EstadoGralMedico
   }
                  }
   `;
@@ -71,25 +101,104 @@ export default function File_Proccess_DB_Colombia() {
   //console.log("cruzando datos!!");
 
   const arry_arreglo_colombia = [];
+  const arry_arreglo_file = [];
 
-  async function organizarDataColombia(){
-    await data.ficheroColombia.map((val,i,arr) =>{
-        arry_arreglo_colombia.push({
-          name_1 : val.Apeynom.split(" ").sort().join("").replace("#", "Ñ")
-        })
+
+  async function organizarDataColombia() {
+
+
+    await data.ficheroColombia.map((val, i, arr) => {
+      arry_arreglo_colombia.push({
+        name_1: val.Apeynom.split(" ").sort().join("").replace("#", "Ñ")
+      })
     })
+
+
+
+    return <p>Preparando Datos...</p>
 
   }
 
-  organizarDataColombia();
 
-  arry_arreglo_colombia.map((val, i, arr) =>{
-      console.log(val.name_1.split("").sort().join("")); 
-  });
+  async function datosFile() {
+    await arr_contenido.map((val, i, arr) => {
+
+      let nombre_ = val[arr_list[0].id];
+
+      arry_arreglo_file.push({
+        name_2: nombre_.split(" ").sort().join("").replace("#", "Ñ")
+      })
+
+    })
+  }
+
+
+  organizarDataColombia();
+  datosFile()
+
+
+  //variable para tabla
+
+  for (let index = 0; index < arry_arreglo_file.length; index++) {
+    for (let i = 0; i < arry_arreglo_colombia.length; i++) {
+      //console.log(arry_arreglo_file[index].name_2 + " " + index); 
+      if (arry_arreglo_file[index].name_2 == arry_arreglo_colombia[i].name_1) {
+
+        array_result_file.push({
+          name_1: arr_contenido[index][arr_list[0].id],
+          apeNom: data.ficheroColombia[i].Apeynom,
+          localidad: data.ficheroColombia[i].Localidad_Colonia1,
+          barrio: data.ficheroColombia[i].Barrio_Municipio1,
+          direccion: data.ficheroColombia[i].Direccion1,
+          matricula: data.ficheroColombia[i].Matricula1,
+          fechaAlta: data.ficheroColombia[i].Fecha_Alta,
+
+          idu: data.ficheroColombia[i].Id_Unico,
+          Espec_1: data.ficheroColombia[i].Espec_1,
+          cdg_espec1: data.ficheroColombia[i].cdg_espec1,
+          nro_medico: data.ficheroColombia[i].nro_medico
+        })
+
+      } else {
+
+      }
+    }
+
+  }
+
+  //variables para tabla
+  //console.log(array_result_file[100]);
+
 
   return (
-<div>
+    <div>
+      <MaterialTable
+        key={(r) => r._id}
+        columns={columns}
+        data={array_result_file}
+        style={{ fontSize: "0.7em" }}
+        title="BUSQUEDA BASE COLOMBIA"
+        options={{
+          headerStyle: { background: "#ff8d00", color: "#FFF", textAlign: "center " },
+          actionsColumnIndex: -1,
+          exportButton: true,
+          exportAllData: true,
+        }}
+        localization={{ header: { actions: "Acciones" } }}
+      />
+      <br></br>
+      <Link
+        to="/File_DB_Pool"
+        style={{
+          textDecoration: "none",
+          border: "solid 1px #000",
+          padding: "0.2em",
+        }}
+      >
+        Cruzar con Pool
+      </Link>
 
-</div>
+
+    </div>
   );
 }
