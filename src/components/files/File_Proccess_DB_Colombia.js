@@ -152,7 +152,6 @@ export default function File_Proccess_DB_Colombia() {
           direccion: data.ficheroColombia[i].Direccion1,
           matricula: data.ficheroColombia[i].Matricula1,
           fechaAlta: data.ficheroColombia[i].Fecha_Alta,
-
           idu: data.ficheroColombia[i].Id_Unico,
           Espec_1: data.ficheroColombia[i].Espec_1,
           cdg_espec1: data.ficheroColombia[i].cdg_espec1,
@@ -171,7 +170,8 @@ export default function File_Proccess_DB_Colombia() {
 
 
   return (
-    <div>
+    <div style={{  marginRight: "-800px" }}>
+    
       <MaterialTable
         key={(r) => r._id}
         columns={columns}
