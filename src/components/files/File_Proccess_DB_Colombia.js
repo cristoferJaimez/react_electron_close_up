@@ -53,7 +53,7 @@ export default function File_Proccess_DB_Colombia() {
     },
 
     {
-      title: "ESTADO",
+      title: "ACTIVO",
       field: "estado",
     },
   ];
@@ -155,7 +155,8 @@ export default function File_Proccess_DB_Colombia() {
           idu: data.ficheroColombia[i].Id_Unico,
           Espec_1: data.ficheroColombia[i].Espec_1,
           cdg_espec1: data.ficheroColombia[i].cdg_espec1,
-          nro_medico: data.ficheroColombia[i].nro_medico
+          nro_medico: data.ficheroColombia[i].nro_medico,
+          estado : data.ficheroColombia[i].EstadoGralMedico
         })
 
       } else {
