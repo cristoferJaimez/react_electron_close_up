@@ -171,7 +171,7 @@ export default function File_Proccess_DB_Colombia() {
 
 
   return (
-    <div style={{  marginRight: "-800px" }}>
+    <div style={{  marginRight: "-100px" }}>
     
       <MaterialTable
         key={(r) => r._id}
