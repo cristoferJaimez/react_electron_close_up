@@ -27,7 +27,7 @@ export default function File_Proccess_DB_Pool() {
     },
 
     {
-      title: "nro_medico",
+      title: "Nro_medico",
       field: "nro_medico",
     },
     {
@@ -42,7 +42,7 @@ export default function File_Proccess_DB_Pool() {
     {
       title: "Especialidad",
       field: "especialidad",
-    },
+    }
   ];
 
 
@@ -133,9 +133,10 @@ export default function File_Proccess_DB_Pool() {
           cod_Labo: data.pool[i].Cod_Labo,
           laboratorio: data.pool[i].Laboratorio,
           orden: data.pool[i].Orden,
+          nro_medico : data.pool[i].nro_medico,
           direccion: data.pool[i].Direccion,
-          Matricula: data.pool[i].Matricula,
-          espacialidad: data.pool[i].nro_medico.Esp1,
+          matricula: data.pool[i].Matricula,
+          especialidad: data.pool[i].Esp1,
 
         })
 
